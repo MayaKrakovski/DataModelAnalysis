@@ -20,16 +20,16 @@ def scale_raw_data():
 
     df = pd.DataFrame()
     for e in exercises:
-        temp = pd.read_csv('CSV/Raw Data/'+'maya'+'_'+e+'.csv')
+        temp = pd.read_csv('CSV/Raw Data/'+'val1'+e+'.csv')
         signalcols = temp.columns[temp.columns.str.startswith('Unnamed')]
         signal = temp[signalcols]
         scaled_signal = min_max_scale_signal(signal, exercises[e])
         temp[signalcols] = scaled_signal
         temp.insert(1, "Exercise", [e]*len(temp.index), True)
-        temp.insert(1, "Source", ["maya"]*len(temp.index), True)
+        temp.insert(1, "Source", ["val1"]*len(temp.index), True)
         df = df.append(temp, ignore_index=True)
 
-    df.to_csv('CSV\\Raw Data\\raw_data_scaled.csv')
+    df.to_csv('CSV\\Raw Data\\val1_raw_data_scaled.csv')
 
     # plotting
     framepersec = 30  # frame per seconds of nuitrack
@@ -144,7 +144,7 @@ def calc_angle(joint1_x, joint1_y, joint1_z, joint2_x, joint2_y, joint2_z, joint
 
 def arrange_data(path, ex_name, row1, row2):
     # Read all excel data and transform to one table in csv file, including only angles
-    f = open('CSV/Raw Data/maya_'+ex_name+'.csv', 'w', newline='')
+    f = open('CSV/Raw Data/val1'+ex_name+'.csv', 'w', newline='')
     writer = csv.writer(f)
     writer.writerow(['Participant','hand'])
     workbook_name = os.listdir(path)
@@ -220,6 +220,19 @@ def maya_exp():
     for ex in exercises:
         arrange_data(path, ex[0], ex[1], ex[2])
         # create_graphs(ex_name[0], True, False)
+
+def validation_exp():
+    p = r'CSV\Raw Data\validationexp1'
+    exercises = [['raise_arms_horizontally', 50, 51], ['bend_elbows', 26, 27],['raise_arms_bend_elbows', 50, 51],
+                 ['open_and_close_arms', 52, 53],['open_and_close_arms_90',52,53],['raise_arms_forward',50,51]]
+    for ex in exercises:
+        arrange_data(p, ex[0], ex[1], ex[2])
+
+    # OPEM_ARMS_AMD_CLOSE_90 contained in the file of OPEM_ARMS_AMD_CLOSE -
+    # removing this so it will be sepreated
+    OPEM_ARMS_AMD_CLOSE = pd.read_csv(r'CSV\Raw Data\val1open_and_close_arms.csv')
+    df = OPEM_ARMS_AMD_CLOSE[~OPEM_ARMS_AMD_CLOSE['Participant'].str.endswith('2')]
+    df.to_csv(r'CSV\Raw Data\val1open_and_close_arms.csv')
 
 
 def naama_exp():

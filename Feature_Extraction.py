@@ -6,6 +6,7 @@ from statistics import mean, stdev, variance
 import matplotlib.pyplot as plt
 from scipy.fft import fft, fftfreq
 import pickle
+from math import isnan
 
 
 def max_min(data):
@@ -20,6 +21,44 @@ def max_min(data):
     min_index = min_index[0]  # indexs of min_index
     min_index = min_index[data[min_index] < mean(data)]
     return max_index, min_index
+
+
+def max_min_plots():
+    # only plot the max_min_plots:
+    path = 'CSV/Raw Data/raw_data_scaled.csv'
+    df = pd.read_csv(path)
+    fps = 30
+    cutoff_freq = 6
+    filter_order = 2
+    y, x = butter(filter_order, cutoff_freq/(fps/2))
+
+    for i in range(0, len(df.index), 2):
+        rightdata = (df.iloc[i]).dropna().to_numpy()
+        name = rightdata[1]  # Participant ID
+        ex = rightdata[3]
+        rightdata = filtfilt(y, x, rightdata[5:])
+        leftdata = (df.iloc[i+1]).dropna().to_numpy()
+        leftdata = filtfilt(y, x, leftdata[5:])
+
+        right_maxmin = max_min(rightdata)
+        left_maxmin = max_min(leftdata)
+        # plots
+        fig = plt.figure()
+        ax = fig.add_subplot(1, 2, 1)
+        ax.set(ylabel="Armpit Degree", xlabel="Frame")
+        ax.title.set_text(name+' right hand')
+        ax.plot(rightdata, label="Angle", color='dimgray')
+        ax.plot(right_maxmin[0], np.asarray(rightdata)[right_maxmin[0]], "x", color='deepskyblue', label="max")
+        ax.plot(right_maxmin[1], np.asarray(rightdata)[right_maxmin[1]], "x", color='deeppink', label="min")
+        plt.legend(loc='lower right')
+        ax = fig.add_subplot(1, 2, 2)
+        ax.set(ylabel="Armpit Degree", xlabel="Frame")
+        ax.title.set_text(name+' left hand')
+        ax.plot(leftdata, label="Angle", color='dimgray')
+        ax.plot(left_maxmin[0], np.asarray(leftdata)[left_maxmin[0]], "x", color='deepskyblue', label="max")
+        ax.plot(left_maxmin[1], np.asarray(leftdata)[left_maxmin[1]], "x", color='deeppink', label="min")
+        plt.legend(loc='lower right')
+        fig.savefig('Plots/MaxMin/'+ex+"_"+name+'.png')
 
 
 def vel_acc_calc(data, fps):
@@ -76,6 +115,62 @@ def repetition_divison(max_indx, min_indx):
     return df_rep
 
 
+def plot_rep_hand(data, data_repDF, fig, num):
+    rep_count = 1
+    colorsarr = ['brown', 'salmon', 'orange', 'yellow', 'lime', 'dodgerblue', 'blueviolet', 'violet', 'hotpink']*3
+    ax = fig.add_subplot(1, 2, num)
+    ax.plot(data, color='dimgray')
+    for row in range(0, len(data_repDF)):
+        rep_temp = data_repDF.iloc[row]
+        lab = 'repetiton'+str(rep_count)
+        if isnan(rep_temp['start_frame']):
+            ax.plot(range(0, int(rep_temp['end_frame'])), data[0:int(rep_temp['end_frame'])], label=lab,
+                    color=colorsarr[rep_count-1])
+        else:
+            if isnan(rep_temp['end_frame']):
+                ax.plot(range(int(rep_temp['start_frame']), len(data)), data[int(rep_temp['start_frame']):],
+                        label=lab, color=colorsarr[rep_count-1])
+            else:
+                ax.plot(range(int(rep_temp['start_frame']), int(rep_temp['end_frame'])),
+                        data[int(rep_temp['start_frame']):int(rep_temp['end_frame'])], label=lab,
+                        color=colorsarr[rep_count-1])
+        rep_count += 1
+        ax.plot(rep_temp['peak_frame'], data[int(rep_temp['peak_frame'])], "x", color='black', label="peak")
+    return ax
+    # ax.legend()
+
+
+def plot_rep(rightdata, rightdata_repDF, leftdata, leftdata_repDF):
+    path = 'CSV/Raw Data/raw_data_scaled.csv'
+    df = pd.read_csv(path)
+    framepersec = 30  # frame per seconds of nuitrack
+    # For filtering
+    cutoff_freq = 6
+    filter_order = 2
+    y, x = butter(filter_order, cutoff_freq/(framepersec/2))
+
+    vel_df = pd.DataFrame()
+    fft_df = pd.DataFrame()
+    for i in range(0, len(df.index), 2):
+        rightdata = (df.iloc[i]).dropna().to_numpy()
+        name = rightdata[1]  # Participant ID
+        ex = rightdata[3] # ex name
+        rightdata = filtfilt(y, x, rightdata[5:])
+        leftdata = (df.iloc[i+1]).dropna().to_numpy()
+        leftdata = filtfilt(y, x, leftdata[5:])
+
+        # vel_features(right, fps, True, name + ' - right hand')
+        rightdata_repDF = repetition_features(rightdata, name, 'right', framepersec)
+        leftdata_repDF = repetition_features(leftdata, name, 'left', framepersec)
+        fig = plt.figure()
+        ax1 = plot_rep_hand(rightdata, rightdata_repDF, fig, 1)
+        ax2 = plot_rep_hand(leftdata, leftdata_repDF, fig, 2)
+        handles, labels = ax1.get_legend_handles_labels()
+        fig.legend(handles, labels, loc='center right')
+        # plt.show()
+        fig.savefig('Plots/Rep/'+ex+"_"+name+'.png')
+
+
 def vel_plots(data, title, vel, acc, time, mean_sd):
     fig = plt.figure()
     ax = fig.add_subplot(3, 1, 1)
@@ -108,8 +203,10 @@ def vel_features(data, fps, show_plt, title="no title"):
     return mean_sd
 
 
-def repetition_features(data, participant, hand, framepersec):
+def repetition_features(data, participant, hand, framepersec, plot_maxmin=False):
     data_maxmin = max_min(data)
+    if plot_maxmin:
+        max_min_plots(participant+" "+hand, data)
     data_repDF = repetition_divison(data_maxmin[0], data_maxmin[1])
     frames_up_list = []  # The amount of frames in raising (up)
     frames_down_list = []  # The amount of frames in descent (down)
@@ -225,13 +322,13 @@ def feature_extraction(data_source, ex_name, df):
     fft_df = pd.DataFrame()
     for i in range(0, len(df.index), 2):
         right = (df.iloc[i]).dropna().to_numpy()
-        print(right)
-        name = right[0]  # Participant ID
-        print(name)
-        right = filtfilt(y, x, right[2:])
+        # print(right)
+        name = right[1]  # Participant ID
+        # print(name)
+        right = filtfilt(y, x, right[5:])
         left = (df.iloc[i+1]).dropna().to_numpy()
-        print(left)
-        left = filtfilt(y, x, left[2:])
+        # print(left)
+        left = filtfilt(y, x, left[5:])
 
         right_repDF = repetition_features(right, name, 'right', fps)
         left_repDF = repetition_features(left, name, 'left', fps)
@@ -254,24 +351,37 @@ def feature_extraction(data_source, ex_name, df):
     features.to_csv('CSV\\features\\' + data_source + ex_name + 'featuresbyhand.csv')
 
 
-def extraction_main():
-    path = 'CSV/Raw Data/'
-    data_files = os.listdir(path)
-    for file in data_files:
-        if 'naama' not in file:
-            ex_name = file.split('maya_')[1].split('.csv')[0]
-            data_source = 'maya_'
-        else:
-            if 'pilot' not in file:
-                ex_name = file.split('naama_')[1].split('.csv')[0]
-                data_source = 'naama_'
+def extraction_main(old_data_form=False, valexp=True):
+    if old_data_form:
+        path = 'CSV/Raw Data/'
+        data_files = os.listdir(path)
+        for file in data_files:
+            if 'naama' not in file:
+                ex_name = file.split('maya_')[1].split('.csv')[0]
+                data_source = 'maya_'
             else:
-                ex_name = file.split('naama_pilot_')[1].split('.csv')[0]
-                data_source = 'naama_pilot_'
-        data_path = 'CSV/Raw Data/' + data_source + ex_name + '.csv'
-        print(data_path)
-        df = pd.read_csv(data_path)
-        feature_extraction(data_source, ex_name, df)
+                if 'pilot' not in file:
+                    ex_name = file.split('naama_')[1].split('.csv')[0]
+                    data_source = 'naama_'
+                elif not valexp:
+                    ex_name = file.split('naama_pilot_')[1].split('.csv')[0]
+                    data_source = 'naama_pilot_'
+                else:
+                    ex_name = file.split('val1')[1].split('.csv')[0]
+                    data_source = 'val1'
+            data_path = 'CSV/Raw Data/' + data_source + ex_name + '.csv'
+            print(data_path)
+            df = pd.read_csv(data_path)
+            feature_extraction(data_source, ex_name, df)
+    else:
+        # extract features for raw_data_scaled
+        path = 'CSV/Raw Data/raw_data_scaled.csv'
+        path = 'CSV/Raw Data/val1_raw_data_scaled.csv'
+        df = pd.read_csv(path)
+        data_source = "val1_raw_scaled"
+        for ex_name in df["Exercise"].unique():
+            temp_df = df[df["Exercise"] == ex_name]
+            feature_extraction(data_source, ex_name, temp_df)
 
 
 def create_graph(datasource, ex_name, savefigure, showfigure, both_hands=False):
@@ -417,9 +527,30 @@ def scale_features():
     # df.to_csv('CSV\\features\\allfeaturesbyhandscaled.csv')
 
 
+def combine():
+    path = 'CSV/Raw Data/'
+    data_files = os.listdir(path)
+    filtered_list = [item for item in data_files if "val1" in item]
+
+    ds = 'val1'
+    data = pd.DataFrame()
+    for e in filtered_list:
+        ex_name = e.split('val1')[1].split('.csv')[0]
+        data_path = 'CSV/Raw Data/' + ds + ex_name + '.csv'
+        df = pd.read_csv(data_path)
+        feature_extraction(ds, ex_name, df)
+        temp = pd.read_csv('CSV/features/'+ds+ex_name+"featuresbyhand.csv")
+        temp.insert(1, "Exercise", [ex_name]*len(temp.index), True)
+        temp.insert(1, "Source", [ds]*len(temp.index), True)
+        data = data.append(temp, ignore_index=True)
+
+    data.to_csv('CSV/features/val1allfeaturesbyhand.csv')
+
+
 if __name__ == "__main__":
     print('main')
     # extraction_main()
     # signal_plots()
     # count_participants()
-    scale_features()
+    # scale_features()
+

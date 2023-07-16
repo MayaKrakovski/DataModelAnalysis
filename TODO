@@ -1,0 +1,15 @@
+July
+20 Validation experiments (one session good, one not good)
+10 Validation experiments (one session with weights, one without)
+
+Models:
+Model 2 – not good results, Evaluate with the other two -> need to summarize all results.
+Fix Model:
+•	New standardization – of raw data, based on the range of each experiment.
+    	Bad results on the old data.. ?
+•	Try standardization based only on good performances
+•	Look into the repetition division again
+•	Calc models based on new data
+•	Calculate angels again of old data (based on 3d angle calculation) – and than look into model with 3 exercises and all exercises?
+•	Remove features based on size (like mean, rep count..)
+•	Labeling – maybe label again?

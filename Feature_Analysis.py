@@ -17,7 +17,7 @@ def features_plots_multi_exercises():
     df = pd.DataFrame()
     for ds in data_source:
         for e in exercises_list:
-            temp = pd.read_csv('CSV/features/'+ds+'_'+e+"featuresbyhand.csv")
+            temp = pd.read_csv('CSV/features/'+ds+'_'+e+"featuresbyhand.csv" )
             temp.insert(1, "Exercise", [e]*len(temp.index), True)
             temp.insert(1, "Source", [ds]*len(temp.index), True)
             df = df.append(temp, ignore_index=True)
@@ -33,18 +33,22 @@ def features_plots_multi_exercises():
         sns.boxplot(data=df, x=feature, y="Exercise", hue="Source")
 
 
-def combine_data(onlymaya = False):
+def combine_data(onlymaya = True, raw = True):
     # Combine all data sources and exercises files to one df
     if onlymaya:
-        datasource = ['maya']
+        if raw:
+            datasource = ['maya_raw_scaled']
+            datasource = ['val1_raw_scaled']
+        else:
+            datasource = ['maya']
     else:
-        datasource = ['maya', 'naama', 'naama_pilot']
-    exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows', 'open_arms_and_forward']
+        datasource = ['maya', 'naama', 'naama_pilot', 'val1']
+    exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows'] #, 'open_arms_and_forward']
 
     df = pd.DataFrame()
     for ds in datasource:
         for e in exercises:
-            temp = pd.read_csv('CSV/features/'+ds+'_'+e+"featuresbyhand.csv")
+            temp = pd.read_csv('CSV/features/old/'+ds+"_"+e+"featuresbyhand.csv")
             temp.insert(1, "Exercise", [e]*len(temp.index), True)
             temp.insert(1, "Source", [ds]*len(temp.index), True)
             df = df.append(temp, ignore_index=True)
@@ -56,18 +60,21 @@ def combine_data(onlymaya = False):
 def scatter_plot():
     # Create scatter plots to see distribution by data source of the exercise's features clusters
     datasource = ['maya', 'naama', 'naama_pilot']
-    ds_dict = {'maya': 'older adults 1', 'naama': 'older adults 2', 'naama_pilot': 'young adults'}
+    ds_dict = {'maya': 'older adults 1', 'naama': 'older adults 2', 'naama_pilot': 'young adults', 'maya_raw_scaled': 'older adults 1 - raw data scaled'}
     exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows', 'open_arms_and_forward']
 
-    df = combine_data()  # for plotting non-scaled data
-    feature_col = 5
-
-    df = pd.read_csv('CSV/features/old/allfeaturesbyhandscaled.csv')  # for plotting scaled data (only 3 exercises
-    df = pd.read_csv('CSV/features/old/allfeaturesbyhand.csv')  # for plotting not scaled data
+    df = pd.read_csv('CSV/features/allfeaturesbyhandscaled.csv')  # for plotting scaled data (only 3 exercises
+    df = pd.read_csv('CSV/features/allfeaturesbyhand.csv')  # for plotting not scaled data
     feature_col = 6
     exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows']
 
+    df = pd.read_csv('CSV\\features\\newallfeaturesbyhand.csv') # for plotting raw scaled data
+    feature_col = 6
+
     features = df.columns[feature_col:]
+    features_to_remove= ['rep_count','CL', 'cycles num']
+    features = [f for f in features if f not in features_to_remove]
+
     sns.set_palette("husl",6)
 
     # Plot by data source
@@ -86,7 +93,7 @@ def scatter_plot():
         for i in uniq:
             plt.plot(scores_pca[label == i, 0], scores_pca[label == i, 1], ls="", marker='o', label=i)
         # plt.suptitle(cluster_colname)
-        plt.title("Data "+ds_dict[ds])
+        plt.title(ds_dict[ds])
         plt.legend()
         plt.show()
 
@@ -113,10 +120,13 @@ def scatter_plot():
 
 
 def scatter_plot_labeld():
-    file_name = 'allfeaturesbyhandscaled_label.csv' # File containing all data
+    file_name = 'allfeaturesbyhand_label.csv'  # File containing all data without scale
+    file_name = 'allfeaturesbyhandscaled_label.csv' # File containing all data features scaled
+    file_name = 'newallfeaturesbyhand_label.csv' # File containing all data raw scaled
     df = pd.read_csv(f'CSV/features/{file_name}')
-
+    df = df[df['Source'] == 'maya']
     features = df.columns[5:]
+    features = features[1:-2]
     X = df[features]
 
     # PCA
@@ -125,14 +135,35 @@ def scatter_plot_labeld():
     scores_pca_df = pd.DataFrame(scores_pca)
 
     plt.figure()
-    label = df["label"]
-    uniq = [0, 1]
+    label = df["Exercise"]
+    uniq = df["Exercise"].unique()
     for i in uniq:
         plt.plot(scores_pca[label == i, 0], scores_pca[label == i, 1], ls="", marker='o', label=i)
     # plt.suptitle(cluster_colname)
-    plt.title("Data Labels")
+    plt.title("older adults 1 - feature scaled by label")
     plt.legend()
-    # plt.show()
+    plt.show()
+
+    # plot label + exercise
+    df['labelandex'] = df['label'].astype(str) + ' ' + df['Exercise'].astype(str)
+
+    sns.set_palette("tab10")
+
+
+    label = df['labelandex']
+    uniq = df['labelandex'].unique()
+    plt.figure()
+    colors = ['red', 'pink', 'blue', 'green', 'orange', 'yellow']
+
+    # Set the color cycle using set_prop_cycle
+    plt.gca().set_prop_cycle(color=colors)
+
+    for i in uniq:
+        plt.plot(scores_pca[label == i, 0], scores_pca[label == i, 1], ls="", marker='o', label=i)
+        # plt.suptitle(cluster_colname)
+        plt.title("older adults 1 - features scaled by label")
+        plt.legend()
+        plt.show()
 
 
 def compare_dist_data_sources():

@@ -3,7 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, precision_recall_curve, roc_auc_score, \
+    roc_curve, auc
 import pickle
 
 
@@ -49,7 +50,7 @@ def logistic(X_train, X_test, y_train, y_test, alpha, title):
     logit_model = sm.Logit(y_train, X_train).fit_regularized(method='l1', alpha=alpha)
     print_summary(logit_model, title)
     model_evaluation(logit_model, X_test, y_test)
-    return model
+    return logit_model
 
 
 def model_evaluation(model, X_test, y_test):
@@ -57,15 +58,23 @@ def model_evaluation(model, X_test, y_test):
     predictions = list(map(round, predictions))
     print(classification_report(y_test, predictions))
     print(confusion_matrix(y_test, predictions))
+    # PR-RECALL auc
+    roc_auc = roc_auc_score(y_test, predictions)
+    precision, recall, _ = precision_recall_curve(y_test, predictions)
+    pr_auc = auc(recall, precision)
+    print(f"ROC AUC: {roc_auc}, Precision-Recall AUC: {pr_auc}")
 
 
 def models():
     # read Data and filter to maya source only
-    file_name = 'allfeaturesbyhandscaled_label.csv' # File containing all data
+    file_name = 'allfeaturesbyhand_label.csv'  # File containing all data
+    file_name = 'allfeaturesbyhandscaled_label.csv'  # File containing all data
+    file_name = 'newallfeaturesbyhand_label.csv'  # File containing all data
     df = pd.read_csv(f'CSV/features/{file_name}')
 
     df_maya = df[df['Source'] == 'maya']
     features = df_maya.columns[5:]
+    features = features[1:-2]
     X = df_maya[features]
     y = df_maya["label"]
     # split 80 train 20 test
