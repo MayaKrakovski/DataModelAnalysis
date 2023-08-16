@@ -1,0 +1,883 @@
+Source,Exercise,Participant,hand,label
+maya,raise_arms_horizontally,0812202001a.xlsx,left,0
+maya,raise_arms_horizontally,0812202001a.xlsx,right,0
+maya,raise_arms_horizontally,0812202001b.xlsx,left,0
+maya,raise_arms_horizontally,0812202001b.xlsx,right,0
+maya,raise_arms_horizontally,0812202002a.xlsx,left,0
+maya,raise_arms_horizontally,0812202002a.xlsx,right,0
+maya,raise_arms_horizontally,1212202001a.xlsx,left,1
+maya,raise_arms_horizontally,1212202001a.xlsx,right,1
+maya,raise_arms_horizontally,1212202001b.xlsx,left,1
+maya,raise_arms_horizontally,1212202001b.xlsx,right,1
+maya,raise_arms_horizontally,1312202001a.xlsx,left,0
+maya,raise_arms_horizontally,1312202001a.xlsx,right,0
+maya,raise_arms_horizontally,1502202101a.xlsx,left,0
+maya,raise_arms_horizontally,1502202101a.xlsx,right,0
+maya,raise_arms_horizontally,1502202101b.xlsx,left,0
+maya,raise_arms_horizontally,1502202101b.xlsx,right,0
+maya,raise_arms_horizontally,1502202102a.xlsx,left,0
+maya,raise_arms_horizontally,1502202102a.xlsx,right,0
+maya,raise_arms_horizontally,1502202102b.xlsx,left,0
+maya,raise_arms_horizontally,1502202102b.xlsx,right,0
+maya,raise_arms_horizontally,1502202103a.xlsx,left,0
+maya,raise_arms_horizontally,1502202103a.xlsx,right,0
+maya,raise_arms_horizontally,1502202104b.xlsx,left,0
+maya,raise_arms_horizontally,1502202104b.xlsx,right,0
+maya,raise_arms_horizontally,1502202106b.xlsx,left,1
+maya,raise_arms_horizontally,1502202106b.xlsx,right,1
+maya,raise_arms_horizontally,1901202101a.xlsx,left,1
+maya,raise_arms_horizontally,1901202101a.xlsx,right,1
+maya,raise_arms_horizontally,1901202101b.xlsx,left,1
+maya,raise_arms_horizontally,1901202101b.xlsx,right,1
+maya,raise_arms_horizontally,1901202101b.xlsx2,left,1
+maya,raise_arms_horizontally,1901202101b.xlsx2,right,0
+maya,raise_arms_horizontally,2001202101a.xlsx,left,1
+maya,raise_arms_horizontally,2001202101a.xlsx,right,1
+maya,raise_arms_horizontally,2001202101a.xlsx2,left,0
+maya,raise_arms_horizontally,2001202101a.xlsx2,right,0
+maya,raise_arms_horizontally,2001202102a.xlsx,left,0
+maya,raise_arms_horizontally,2001202102a.xlsx,right,0
+maya,raise_arms_horizontally,2112202001a.xlsx,left,0
+maya,raise_arms_horizontally,2112202001a.xlsx,right,0
+maya,raise_arms_horizontally,2112202001b.xlsx,left,0
+maya,raise_arms_horizontally,2112202001b.xlsx,right,0
+maya,raise_arms_horizontally,2112202001b.xlsx2,left,0
+maya,raise_arms_horizontally,2112202001b.xlsx2,right,0
+maya,raise_arms_horizontally,2112202002a.xlsx,left,0
+maya,raise_arms_horizontally,2112202002a.xlsx,right,0
+maya,raise_arms_horizontally,2112202002b.xlsx,left,0
+maya,raise_arms_horizontally,2112202002b.xlsx,right,0
+maya,raise_arms_horizontally,2112202003a.xlsx,left,0
+maya,raise_arms_horizontally,2112202003a.xlsx,right,0
+maya,raise_arms_horizontally,2112202003b.xlsx,left,0
+maya,raise_arms_horizontally,2112202003b.xlsx,right,0
+maya,raise_arms_horizontally,2112202004b.xlsx,left,1
+maya,raise_arms_horizontally,2112202004b.xlsx,right,1
+maya,raise_arms_horizontally,2112202005b.xlsx,left,1
+maya,raise_arms_horizontally,2112202005b.xlsx,right,1
+maya,raise_arms_horizontally,2112202005b.xlsx2,left,1
+maya,raise_arms_horizontally,2112202005b.xlsx2,right,1
+maya,raise_arms_horizontally,902202101a.xlsx,left,0
+maya,raise_arms_horizontally,902202101a.xlsx,right,0
+maya,raise_arms_horizontally,902202102b.xlsx,left,1
+maya,raise_arms_horizontally,902202102b.xlsx,right,1
+maya,raise_arms_horizontally,902202103a.xlsx,left,0
+maya,raise_arms_horizontally,902202103a.xlsx,right,0
+maya,raise_arms_horizontally,902202103b.xlsx,left,0
+maya,raise_arms_horizontally,902202103b.xlsx,right,0
+maya,raise_arms_horizontally,902202104b.xlsx,left,1
+maya,raise_arms_horizontally,902202104b.xlsx,right,1
+maya,raise_arms_horizontally,902202105a.xlsx,left,0
+maya,raise_arms_horizontally,902202105a.xlsx,right,0
+maya,raise_arms_horizontally,902202105a.xlsx2,left,0
+maya,raise_arms_horizontally,902202105a.xlsx2,right,0
+maya,raise_arms_horizontally,902202106a.xlsx,left,0
+maya,raise_arms_horizontally,902202106a.xlsx,right,0
+maya,bend_elbows,0812202001b.xlsx,left,0
+maya,bend_elbows,0812202001b.xlsx,right,0
+maya,bend_elbows,0812202002a.xlsx,left,0
+maya,bend_elbows,0812202002a.xlsx,right,0
+maya,bend_elbows,0812202002b.xlsx,left,0
+maya,bend_elbows,0812202002b.xlsx,right,0
+maya,bend_elbows,1212202001b.xlsx,left,1
+maya,bend_elbows,1212202001b.xlsx,right,1
+maya,bend_elbows,1312202001a.xlsx,left,0
+maya,bend_elbows,1312202001a.xlsx,right,0
+maya,bend_elbows,1502202102a.xlsx,left,1
+maya,bend_elbows,1502202102a.xlsx,right,1
+maya,bend_elbows,1502202102b.xlsx,left,0
+maya,bend_elbows,1502202102b.xlsx,right,0
+maya,bend_elbows,1502202103a.xlsx,left,1
+maya,bend_elbows,1502202103a.xlsx,right,1
+maya,bend_elbows,1502202105b.xlsx,left,0
+maya,bend_elbows,1502202105b.xlsx,right,0
+maya,bend_elbows,1502202106a.xlsx,left,0
+maya,bend_elbows,1502202106a.xlsx,right,0
+maya,bend_elbows,1502202106b.xlsx,left,1
+maya,bend_elbows,1502202106b.xlsx,right,1
+maya,bend_elbows,1901202101b.xlsx,left,0
+maya,bend_elbows,1901202101b.xlsx,right,1
+maya,bend_elbows,1901202101b.xlsx2,left,0
+maya,bend_elbows,1901202101b.xlsx2,right,0
+maya,bend_elbows,2001202101a.xlsx,left,0
+maya,bend_elbows,2001202101a.xlsx,right,0
+maya,bend_elbows,2001202101b.xlsx,left,0
+maya,bend_elbows,2001202101b.xlsx,right,0
+maya,bend_elbows,2001202102b.xlsx,left,1
+maya,bend_elbows,2001202102b.xlsx,right,1
+maya,bend_elbows,2112202001a.xlsx,left,1
+maya,bend_elbows,2112202001a.xlsx,right,1
+maya,bend_elbows,2112202001a.xlsx2,left,1
+maya,bend_elbows,2112202001a.xlsx2,right,1
+maya,bend_elbows,2112202001b.xlsx,left,0
+maya,bend_elbows,2112202001b.xlsx,right,0
+maya,bend_elbows,2112202002b.xlsx,left,0
+maya,bend_elbows,2112202002b.xlsx,right,0
+maya,bend_elbows,2112202005a.xlsx,left,1
+maya,bend_elbows,2112202005a.xlsx,right,1
+maya,bend_elbows,2112202005a.xlsx2,left,0
+maya,bend_elbows,2112202005a.xlsx2,right,0
+maya,bend_elbows,902202101a.xlsx,left,1
+maya,bend_elbows,902202101a.xlsx,right,1
+maya,bend_elbows,902202102a.xlsx,left,0
+maya,bend_elbows,902202102a.xlsx,right,0
+maya,bend_elbows,902202104a.xlsx,left,1
+maya,bend_elbows,902202104a.xlsx,right,1
+maya,bend_elbows,902202104b.xlsx,left,0
+maya,bend_elbows,902202104b.xlsx,right,0
+maya,bend_elbows,902202105b.xlsx,left,0
+maya,bend_elbows,902202105b.xlsx,right,0
+maya,bend_elbows,902202106a.xlsx,left,0
+maya,bend_elbows,902202106a.xlsx,right,0
+maya,bend_elbows,902202106b.xlsx,left,0
+maya,bend_elbows,902202106b.xlsx,right,0
+maya,raise_arms_bend_elbows,0812202001a.xlsx,left,0
+maya,raise_arms_bend_elbows,0812202001a.xlsx,right,0
+maya,raise_arms_bend_elbows,0812202002a.xlsx,left,1
+maya,raise_arms_bend_elbows,0812202002a.xlsx,right,1
+maya,raise_arms_bend_elbows,0812202002b.xlsx,left,1
+maya,raise_arms_bend_elbows,0812202002b.xlsx,right,1
+maya,raise_arms_bend_elbows,1212202001a.xlsx,left,1
+maya,raise_arms_bend_elbows,1212202001a.xlsx,right,1
+maya,raise_arms_bend_elbows,1312202001a.xlsx,left,0
+maya,raise_arms_bend_elbows,1312202001a.xlsx,right,0
+maya,raise_arms_bend_elbows,1502202101b.xlsx,left,0
+maya,raise_arms_bend_elbows,1502202101b.xlsx,right,0
+maya,raise_arms_bend_elbows,1502202103a.xlsx,left,1
+maya,raise_arms_bend_elbows,1502202103a.xlsx,right,1
+maya,raise_arms_bend_elbows,1502202103b.xlsx,left,1
+maya,raise_arms_bend_elbows,1502202103b.xlsx,right,1
+maya,raise_arms_bend_elbows,1502202104a.xlsx,left,1
+maya,raise_arms_bend_elbows,1502202104a.xlsx,right,1
+maya,raise_arms_bend_elbows,1502202105b.xlsx,left,1
+maya,raise_arms_bend_elbows,1502202105b.xlsx,right,1
+maya,raise_arms_bend_elbows,1502202106a.xlsx,left,0
+maya,raise_arms_bend_elbows,1502202106a.xlsx,right,0
+maya,raise_arms_bend_elbows,1502202107b.xlsx,left,0
+maya,raise_arms_bend_elbows,1502202107b.xlsx,right,0
+maya,raise_arms_bend_elbows,1901202101a.xlsx,left,1
+maya,raise_arms_bend_elbows,1901202101a.xlsx,right,1
+maya,raise_arms_bend_elbows,1901202101a.xlsx2,left,1
+maya,raise_arms_bend_elbows,1901202101a.xlsx2,right,1
+maya,raise_arms_bend_elbows,2001202101a.xlsx,left,0
+maya,raise_arms_bend_elbows,2001202101a.xlsx,right,0
+maya,raise_arms_bend_elbows,2112202002a.xlsx,left,0
+maya,raise_arms_bend_elbows,2112202002a.xlsx,right,0
+maya,raise_arms_bend_elbows,2112202003b.xlsx,left,0
+maya,raise_arms_bend_elbows,2112202003b.xlsx,right,0
+maya,raise_arms_bend_elbows,2112202003b.xlsx2,left,0
+maya,raise_arms_bend_elbows,2112202003b.xlsx2,right,0
+maya,raise_arms_bend_elbows,2112202005a.xlsx,left,0
+maya,raise_arms_bend_elbows,2112202005a.xlsx,right,0
+maya,raise_arms_bend_elbows,2112202005b.xlsx,left,1
+maya,raise_arms_bend_elbows,2112202005b.xlsx,right,1
+maya,raise_arms_bend_elbows,2112202005b.xlsx2,left,1
+maya,raise_arms_bend_elbows,2112202005b.xlsx2,right,1
+maya,raise_arms_bend_elbows,902202101a.xlsx,left,0
+maya,raise_arms_bend_elbows,902202101a.xlsx,right,0
+maya,raise_arms_bend_elbows,902202103b.xlsx,left,0
+maya,raise_arms_bend_elbows,902202103b.xlsx,right,0
+maya,raise_arms_bend_elbows,902202104a.xlsx,left,1
+maya,raise_arms_bend_elbows,902202104a.xlsx,right,1
+maya,raise_arms_bend_elbows,902202104a.xlsx2,left,1
+maya,raise_arms_bend_elbows,902202104a.xlsx2,right,1
+maya,raise_arms_bend_elbows,902202104b.xlsx,left,0
+maya,raise_arms_bend_elbows,902202104b.xlsx,right,0
+maya,raise_arms_bend_elbows,902202106a.xlsx,left,0
+maya,raise_arms_bend_elbows,902202106a.xlsx,right,0
+naama,raise_arms_horizontally,10_1_1.xlsx,left,0
+naama,raise_arms_horizontally,10_1_1.xlsx,right,0
+naama,raise_arms_horizontally,10_1_2.xlsx,left,1
+naama,raise_arms_horizontally,10_1_2.xlsx,right,1
+naama,raise_arms_horizontally,11_1_1.xlsx,left,0
+naama,raise_arms_horizontally,11_1_1.xlsx,right,0
+naama,raise_arms_horizontally,11_1_2.xlsx,left,0
+naama,raise_arms_horizontally,11_1_2.xlsx,right,0
+naama,raise_arms_horizontally,12_1_1.xlsx,left,0
+naama,raise_arms_horizontally,12_1_1.xlsx,right,0
+naama,raise_arms_horizontally,12_1_2.xlsx,left,0
+naama,raise_arms_horizontally,12_1_2.xlsx,right,0
+naama,raise_arms_horizontally,13_1_1.xlsx,left,0
+naama,raise_arms_horizontally,13_1_1.xlsx,right,0
+naama,raise_arms_horizontally,13_1_2.xlsx,left,0
+naama,raise_arms_horizontally,13_1_2.xlsx,right,0
+naama,raise_arms_horizontally,14_1_1.xlsx,left,0
+naama,raise_arms_horizontally,14_1_1.xlsx,right,0
+naama,raise_arms_horizontally,14_1_2.xlsx,left,1
+naama,raise_arms_horizontally,14_1_2.xlsx,right,1
+naama,raise_arms_horizontally,15_1_1.xlsx,left,1
+naama,raise_arms_horizontally,15_1_1.xlsx,right,1
+naama,raise_arms_horizontally,15_1_2.xlsx,left,1
+naama,raise_arms_horizontally,15_1_2.xlsx,right,1
+naama,raise_arms_horizontally,16_1_1.xlsx,left,1
+naama,raise_arms_horizontally,16_1_1.xlsx,right,1
+naama,raise_arms_horizontally,16_1_2.xlsx,left,1
+naama,raise_arms_horizontally,16_1_2.xlsx,right,1
+naama,raise_arms_horizontally,1_1_1.xlsx,left,0
+naama,raise_arms_horizontally,1_1_1.xlsx,right,0
+naama,raise_arms_horizontally,1_1_2.xlsx,left,0
+naama,raise_arms_horizontally,1_1_2.xlsx,right,0
+naama,raise_arms_horizontally,2_1_1.xlsx,left,1
+naama,raise_arms_horizontally,2_1_1.xlsx,right,1
+naama,raise_arms_horizontally,2_1_2.xlsx,left,1
+naama,raise_arms_horizontally,2_1_2.xlsx,right,1
+naama,raise_arms_horizontally,3_1_1.xlsx,left,0
+naama,raise_arms_horizontally,3_1_1.xlsx,right,0
+naama,raise_arms_horizontally,3_1_2.xlsx,left,0
+naama,raise_arms_horizontally,3_1_2.xlsx,right,0
+naama,raise_arms_horizontally,4_1_1.xlsx,left,0
+naama,raise_arms_horizontally,4_1_1.xlsx,right,0
+naama,raise_arms_horizontally,4_1_2.xlsx,left,1
+naama,raise_arms_horizontally,4_1_2.xlsx,right,1
+naama,raise_arms_horizontally,5_1_2.xlsx,left,1
+naama,raise_arms_horizontally,5_1_2.xlsx,right,1
+naama,raise_arms_horizontally,6_1_1.xlsx,left,0
+naama,raise_arms_horizontally,6_1_1.xlsx,right,0
+naama,raise_arms_horizontally,6_1_2.xlsx,left,0
+naama,raise_arms_horizontally,6_1_2.xlsx,right,0
+naama,raise_arms_horizontally,7_1_1.xlsx,left,1
+naama,raise_arms_horizontally,7_1_1.xlsx,right,1
+naama,raise_arms_horizontally,7_1_2.xlsx,left,0
+naama,raise_arms_horizontally,7_1_2.xlsx,right,0
+naama,raise_arms_horizontally,8_1_1.xlsx,left,0
+naama,raise_arms_horizontally,8_1_1.xlsx,right,0
+naama,raise_arms_horizontally,8_1_2.xlsx,left,1
+naama,raise_arms_horizontally,8_1_2.xlsx,right,1
+naama,raise_arms_horizontally,9_1_1.xlsx,left,0
+naama,raise_arms_horizontally,9_1_1.xlsx,right,0
+naama,raise_arms_horizontally,9_1_2.xlsx,left,0
+naama,raise_arms_horizontally,9_1_2.xlsx,right,0
+naama,bend_elbows,10_1_1.xlsx,left,1
+naama,bend_elbows,10_1_1.xlsx,right,1
+naama,bend_elbows,10_1_2.xlsx,left,0
+naama,bend_elbows,10_1_2.xlsx,right,0
+naama,bend_elbows,11_1_1.xlsx,left,1
+naama,bend_elbows,11_1_1.xlsx,right,1
+naama,bend_elbows,11_1_2.xlsx,left,1
+naama,bend_elbows,11_1_2.xlsx,right,1
+naama,bend_elbows,12_1_1.xlsx,left,0
+naama,bend_elbows,12_1_1.xlsx,right,0
+naama,bend_elbows,12_1_2.xlsx,left,0
+naama,bend_elbows,12_1_2.xlsx,right,0
+naama,bend_elbows,13_1_1.xlsx,left,0
+naama,bend_elbows,13_1_1.xlsx,right,0
+naama,bend_elbows,13_1_2.xlsx,left,1
+naama,bend_elbows,13_1_2.xlsx,right,1
+naama,bend_elbows,14_1_1.xlsx,left,0
+naama,bend_elbows,14_1_1.xlsx,right,0
+naama,bend_elbows,14_1_2.xlsx,left,0
+naama,bend_elbows,14_1_2.xlsx,right,0
+naama,bend_elbows,15_1_1.xlsx,left,1
+naama,bend_elbows,15_1_1.xlsx,right,1
+naama,bend_elbows,15_1_2.xlsx,left,0
+naama,bend_elbows,15_1_2.xlsx,right,0
+naama,bend_elbows,16_1_1.xlsx,left,1
+naama,bend_elbows,16_1_1.xlsx,right,1
+naama,bend_elbows,16_1_2.xlsx,left,0
+naama,bend_elbows,16_1_2.xlsx,right,0
+naama,bend_elbows,2_1_1.xlsx,left,1
+naama,bend_elbows,2_1_1.xlsx,right,1
+naama,bend_elbows,2_1_2.xlsx,left,0
+naama,bend_elbows,2_1_2.xlsx,right,0
+naama,bend_elbows,3_1_1.xlsx,left,0
+naama,bend_elbows,3_1_1.xlsx,right,0
+naama,bend_elbows,3_1_2.xlsx,left,0
+naama,bend_elbows,3_1_2.xlsx,right,0
+naama,bend_elbows,4_1_1.xlsx,left,1
+naama,bend_elbows,4_1_1.xlsx,right,1
+naama,bend_elbows,4_1_2.xlsx,left,1
+naama,bend_elbows,4_1_2.xlsx,right,1
+naama,bend_elbows,5_1_1.xlsx,left,0
+naama,bend_elbows,5_1_1.xlsx,right,0
+naama,bend_elbows,5_1_2.xlsx,left,0
+naama,bend_elbows,5_1_2.xlsx,right,0
+naama,bend_elbows,7_1_1.xlsx,left,1
+naama,bend_elbows,7_1_1.xlsx,right,1
+naama,bend_elbows,7_1_2.xlsx,left,1
+naama,bend_elbows,8_1_1.xlsx,left,1
+naama,bend_elbows,8_1_1.xlsx,right,1
+naama,bend_elbows,9_1_1.xlsx,left,1
+naama,bend_elbows,9_1_1.xlsx,right,0
+naama,bend_elbows,9_1_2.xlsx,left,0
+naama,bend_elbows,9_1_2.xlsx,right,0
+naama,raise_arms_bend_elbows,10_1_1.xlsx,left,0
+naama,raise_arms_bend_elbows,10_1_1.xlsx,right,0
+naama,raise_arms_bend_elbows,10_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,10_1_2.xlsx,right,0
+naama,raise_arms_bend_elbows,11_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,11_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,11_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,11_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,12_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,12_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,12_1_2.xlsx,left,0
+naama,raise_arms_bend_elbows,12_1_2.xlsx,right,0
+naama,raise_arms_bend_elbows,13_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,13_1_1.xlsx,right,0
+naama,raise_arms_bend_elbows,13_1_2.xlsx,right,0
+naama,raise_arms_bend_elbows,14_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,14_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,14_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,14_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,15_1_1.xlsx,left,0
+naama,raise_arms_bend_elbows,15_1_1.xlsx,right,0
+naama,raise_arms_bend_elbows,15_1_2.xlsx,left,0
+naama,raise_arms_bend_elbows,15_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,16_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,16_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,16_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,16_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,1_1_1.xlsx,left,0
+naama,raise_arms_bend_elbows,1_1_1.xlsx,right,0
+naama,raise_arms_bend_elbows,1_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,1_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,2_1_1.xlsx,left,0
+naama,raise_arms_bend_elbows,2_1_1.xlsx,right,0
+naama,raise_arms_bend_elbows,2_1_2.xlsx,left,0
+naama,raise_arms_bend_elbows,2_1_2.xlsx,right,0
+naama,raise_arms_bend_elbows,3_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,3_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,3_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,3_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,4_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,4_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,4_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,4_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,5_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,5_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,5_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,5_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,7_1_1.xlsx,left,0
+naama,raise_arms_bend_elbows,7_1_1.xlsx,right,0
+naama,raise_arms_bend_elbows,7_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,7_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,8_1_1.xlsx,left,1
+naama,raise_arms_bend_elbows,8_1_1.xlsx,right,1
+naama,raise_arms_bend_elbows,8_1_2.xlsx,left,1
+naama,raise_arms_bend_elbows,8_1_2.xlsx,right,1
+naama,raise_arms_bend_elbows,9_1_1.xlsx,left,0
+naama,raise_arms_bend_elbows,9_1_1.xlsx,right,0
+naama,raise_arms_bend_elbows,9_1_2.xlsx,left,0
+naama,raise_arms_bend_elbows,9_1_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,10_1.xlsx,left,1
+naama_pilot,raise_arms_horizontally,10_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,11_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,11_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,12_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,12_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,13_3.xlsx,left,1
+naama_pilot,raise_arms_horizontally,13_3.xlsx,right,1
+naama_pilot,raise_arms_horizontally,14_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,14_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,16_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,16_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,17_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,17_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,18_3.xlsx,left,0
+naama_pilot,raise_arms_horizontally,18_3.xlsx,right,0
+naama_pilot,raise_arms_horizontally,19_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,19_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,20_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,20_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,21_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,21_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,22_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,22_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,23_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,23_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,24_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,24_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,25_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,25_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,27_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,27_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,28_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,28_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,28_3.xlsx,left,0
+naama_pilot,raise_arms_horizontally,28_3.xlsx,right,0
+naama_pilot,raise_arms_horizontally,29_1.xlsx,left,1
+naama_pilot,raise_arms_horizontally,29_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,30_1.xlsx,left,1
+naama_pilot,raise_arms_horizontally,30_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,31_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,31_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,32_3.xlsx,left,1
+naama_pilot,raise_arms_horizontally,32_3.xlsx,right,1
+naama_pilot,raise_arms_horizontally,33_1.xlsx,left,1
+naama_pilot,raise_arms_horizontally,33_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,34_2.xlsx,left,1
+naama_pilot,raise_arms_horizontally,34_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,35_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,35_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,36_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,36_2.xlsx,right,1
+naama_pilot,raise_arms_horizontally,36_3.xlsx,left,0
+naama_pilot,raise_arms_horizontally,36_3.xlsx,right,0
+naama_pilot,raise_arms_horizontally,37_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,37_2.xlsx,right,0
+naama_pilot,raise_arms_horizontally,38_3.xlsx,left,1
+naama_pilot,raise_arms_horizontally,38_3.xlsx,right,1
+naama_pilot,raise_arms_horizontally,39_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,39_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,3_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,3_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,40_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,40_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,41_2.xlsx,left,1
+naama_pilot,raise_arms_horizontally,41_2.xlsx,right,1
+naama_pilot,raise_arms_horizontally,42_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,42_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,43_2.xlsx,left,1
+naama_pilot,raise_arms_horizontally,43_2.xlsx,right,1
+naama_pilot,raise_arms_horizontally,43_3.xlsx,left,1
+naama_pilot,raise_arms_horizontally,43_3.xlsx,right,1
+naama_pilot,raise_arms_horizontally,44_2.xlsx,left,1
+naama_pilot,raise_arms_horizontally,44_2.xlsx,right,1
+naama_pilot,raise_arms_horizontally,45_3.xlsx,left,0
+naama_pilot,raise_arms_horizontally,45_3.xlsx,right,1
+naama_pilot,raise_arms_horizontally,46_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,46_2.xlsx,right,1
+naama_pilot,raise_arms_horizontally,47_3.xlsx,left,1
+naama_pilot,raise_arms_horizontally,47_3.xlsx,right,1
+naama_pilot,raise_arms_horizontally,48_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,48_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,49_1.xlsx,left,1
+naama_pilot,raise_arms_horizontally,49_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,4_3.xlsx,left,0
+naama_pilot,raise_arms_horizontally,4_3.xlsx,right,1
+naama_pilot,raise_arms_horizontally,50_1.xlsx,left,1
+naama_pilot,raise_arms_horizontally,50_1.xlsx,right,1
+naama_pilot,raise_arms_horizontally,51_3.xlsx,left,0
+naama_pilot,raise_arms_horizontally,51_3.xlsx,right,0
+naama_pilot,raise_arms_horizontally,5_2.xlsx,left,0
+naama_pilot,raise_arms_horizontally,5_2.xlsx,right,1
+naama_pilot,raise_arms_horizontally,6_3.xlsx,left,0
+naama_pilot,raise_arms_horizontally,6_3.xlsx,right,0
+naama_pilot,raise_arms_horizontally,7_2.xlsx,left,1
+naama_pilot,raise_arms_horizontally,7_2.xlsx,right,1
+naama_pilot,raise_arms_horizontally,8_1.xlsx,left,0
+naama_pilot,raise_arms_horizontally,8_1.xlsx,right,0
+naama_pilot,raise_arms_horizontally,9_2.xlsx,left,1
+naama_pilot,raise_arms_horizontally,9_2.xlsx,right,1
+naama_pilot,bend_elbows,10_3.xlsx,left,0
+naama_pilot,bend_elbows,10_3.xlsx,right,0
+naama_pilot,bend_elbows,11_3.xlsx,left,0
+naama_pilot,bend_elbows,11_3.xlsx,right,0
+naama_pilot,bend_elbows,12_2.xlsx,left,1
+naama_pilot,bend_elbows,12_2.xlsx,right,1
+naama_pilot,bend_elbows,13_1.xlsx,left,1
+naama_pilot,bend_elbows,13_1.xlsx,right,1
+naama_pilot,bend_elbows,14_1.xlsx,left,0
+naama_pilot,bend_elbows,14_1.xlsx,right,0
+naama_pilot,bend_elbows,16_3.xlsx,left,0
+naama_pilot,bend_elbows,16_3.xlsx,right,0
+naama_pilot,bend_elbows,17_2.xlsx,left,0
+naama_pilot,bend_elbows,17_2.xlsx,right,0
+naama_pilot,bend_elbows,18_3.xlsx,left,0
+naama_pilot,bend_elbows,18_3.xlsx,right,0
+naama_pilot,bend_elbows,19_2.xlsx,left,1
+naama_pilot,bend_elbows,19_2.xlsx,right,0
+naama_pilot,bend_elbows,1_2.xlsx,left,1
+naama_pilot,bend_elbows,1_2.xlsx,right,1
+naama_pilot,bend_elbows,20_2.xlsx,left,0
+naama_pilot,bend_elbows,20_2.xlsx,right,0
+naama_pilot,bend_elbows,21_3.xlsx,left,1
+naama_pilot,bend_elbows,21_3.xlsx,right,1
+naama_pilot,bend_elbows,22_3.xlsx,left,0
+naama_pilot,bend_elbows,22_3.xlsx,right,0
+naama_pilot,bend_elbows,23_3.xlsx,left,0
+naama_pilot,bend_elbows,23_3.xlsx,right,0
+naama_pilot,bend_elbows,24_1.xlsx,left,0
+naama_pilot,bend_elbows,24_1.xlsx,right,0
+naama_pilot,bend_elbows,25_3.xlsx,left,0
+naama_pilot,bend_elbows,25_3.xlsx,right,0
+naama_pilot,bend_elbows,26_1.xlsx,left,1
+naama_pilot,bend_elbows,26_1.xlsx,right,1
+naama_pilot,bend_elbows,27_2.xlsx,left,0
+naama_pilot,bend_elbows,27_2.xlsx,right,0
+naama_pilot,bend_elbows,27_3.xlsx,left,0
+naama_pilot,bend_elbows,27_3.xlsx,right,0
+naama_pilot,bend_elbows,28_1.xlsx,left,1
+naama_pilot,bend_elbows,28_1.xlsx,right,0
+naama_pilot,bend_elbows,29_2.xlsx,left,0
+naama_pilot,bend_elbows,29_2.xlsx,right,0
+naama_pilot,bend_elbows,2_1.xlsx,left,1
+naama_pilot,bend_elbows,2_1.xlsx,right,1
+naama_pilot,bend_elbows,31_1.xlsx,left,0
+naama_pilot,bend_elbows,31_1.xlsx,right,0
+naama_pilot,bend_elbows,32_1.xlsx,left,0
+naama_pilot,bend_elbows,32_1.xlsx,right,0
+naama_pilot,bend_elbows,35_3.xlsx,left,1
+naama_pilot,bend_elbows,35_3.xlsx,right,1
+naama_pilot,bend_elbows,36_1.xlsx,left,0
+naama_pilot,bend_elbows,36_1.xlsx,right,1
+naama_pilot,bend_elbows,37_1.xlsx,left,1
+naama_pilot,bend_elbows,37_1.xlsx,right,1
+naama_pilot,bend_elbows,39_2.xlsx,left,0
+naama_pilot,bend_elbows,39_2.xlsx,right,0
+naama_pilot,bend_elbows,3_2.xlsx,left,1
+naama_pilot,bend_elbows,3_2.xlsx,right,0
+naama_pilot,bend_elbows,40_2.xlsx,left,0
+naama_pilot,bend_elbows,40_2.xlsx,right,0
+naama_pilot,bend_elbows,41_1.xlsx,left,0
+naama_pilot,bend_elbows,41_1.xlsx,right,0
+naama_pilot,bend_elbows,42_3.xlsx,left,0
+naama_pilot,bend_elbows,42_3.xlsx,right,0
+naama_pilot,bend_elbows,43_3.xlsx,left,0
+naama_pilot,bend_elbows,43_3.xlsx,right,0
+naama_pilot,bend_elbows,44_3.xlsx,left,1
+naama_pilot,bend_elbows,44_3.xlsx,right,1
+naama_pilot,bend_elbows,45_2.xlsx,left,0
+naama_pilot,bend_elbows,45_2.xlsx,right,0
+naama_pilot,bend_elbows,46_2.xlsx,left,1
+naama_pilot,bend_elbows,46_2.xlsx,right,1
+naama_pilot,bend_elbows,47_2.xlsx,left,0
+naama_pilot,bend_elbows,47_2.xlsx,right,0
+naama_pilot,bend_elbows,48_2.xlsx,left,0
+naama_pilot,bend_elbows,48_2.xlsx,right,0
+naama_pilot,bend_elbows,4_2.xlsx,left,0
+naama_pilot,bend_elbows,4_2.xlsx,right,0
+naama_pilot,bend_elbows,50_3.xlsx,left,1
+naama_pilot,bend_elbows,50_3.xlsx,right,1
+naama_pilot,bend_elbows,51_1.xlsx,left,0
+naama_pilot,bend_elbows,51_1.xlsx,right,0
+naama_pilot,bend_elbows,6_2.xlsx,left,0
+naama_pilot,bend_elbows,6_2.xlsx,right,0
+naama_pilot,bend_elbows,7_3 - Org.xlsx,left,0
+naama_pilot,bend_elbows,7_3 - Org.xlsx,right,0
+naama_pilot,bend_elbows,7_3.xlsx,left,1
+naama_pilot,bend_elbows,7_3.xlsx,right,1
+naama_pilot,bend_elbows,8_1.xlsx,left,1
+naama_pilot,bend_elbows,8_1.xlsx,right,1
+naama_pilot,bend_elbows,9_3.xlsx,left,1
+naama_pilot,bend_elbows,9_3.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,10_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,10_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,11_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,11_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,13_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,13_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,15_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,15_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,16_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,16_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,17_2.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,17_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,17_3.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,17_3.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,19_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,19_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,20_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,20_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,21_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,21_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,22_2.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,22_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,23_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,23_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,24_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,24_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,25_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,25_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,27_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,27_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,29_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,29_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,2_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,2_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,30_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,30_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,31_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,31_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,32_2.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,32_2.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,33_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,33_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,34_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,34_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,35_2.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,35_2.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,36_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,36_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,37_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,37_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,38_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,38_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,39_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,39_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,40_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,40_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,41_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,41_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,42_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,42_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,43_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,43_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,44_1.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,44_1.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,45_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,45_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,46_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,46_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,47_2.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,47_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,48_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,48_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,48_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,48_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,49_2.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,49_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,4_2.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,4_2.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,50_3.xlsx,left,1
+naama_pilot,raise_arms_bend_elbows,50_3.xlsx,right,1
+naama_pilot,raise_arms_bend_elbows,51_1.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,51_1.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,5_3.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,5_3.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,6_1.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,6_1.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,8_3.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,8_3.xlsx,right,0
+naama_pilot,raise_arms_bend_elbows,9_1.xlsx,left,0
+naama_pilot,raise_arms_bend_elbows,9_1.xlsx,right,1
+val1,raise_arms_horizontally,21.6 10.13.55.xlsx,left,1
+val1,raise_arms_horizontally,21.6 10.13.55.xlsx,right,1
+val1,raise_arms_horizontally,21.6 10.42.22.xlsx,left,1
+val1,raise_arms_horizontally,21.6 10.42.22.xlsx,right,1
+val1,raise_arms_horizontally,21.6 10.5.25.xlsx,left,0
+val1,raise_arms_horizontally,21.6 10.5.25.xlsx,right,0
+val1,raise_arms_horizontally,21.6 10.52.40.xlsx,left,0
+val1,raise_arms_horizontally,21.6 10.52.40.xlsx,right,0
+val1,raise_arms_horizontally,21.6 11.13.1.xlsx,left,1
+val1,raise_arms_horizontally,21.6 11.13.1.xlsx,right,1
+val1,raise_arms_horizontally,21.6 11.4.46.xlsx,left,0
+val1,raise_arms_horizontally,21.6 11.4.46.xlsx,right,0
+val1,raise_arms_horizontally,21.6 12.1.52.xlsx,left,1
+val1,raise_arms_horizontally,21.6 12.1.52.xlsx,right,1
+val1,raise_arms_horizontally,21.6 12.10.25.xlsx,left,0
+val1,raise_arms_horizontally,21.6 12.10.25.xlsx,right,0
+val1,raise_arms_horizontally,21.6 12.21.32.xlsx,left,0
+val1,raise_arms_horizontally,21.6 12.21.32.xlsx,right,0
+val1,raise_arms_horizontally,21.6 12.29.37.xlsx,left,1
+val1,raise_arms_horizontally,21.6 12.29.37.xlsx,right,1
+val1,raise_arms_horizontally,21.6 12.59.26.xlsx,left,1
+val1,raise_arms_horizontally,21.6 12.59.26.xlsx,right,1
+val1,raise_arms_horizontally,21.6 13.7.26.xlsx,left,0
+val1,raise_arms_horizontally,21.6 13.7.26.xlsx,right,0
+val1,raise_arms_horizontally,21.6 14.16.1.xlsx,left,1
+val1,raise_arms_horizontally,21.6 14.16.1.xlsx,right,1
+val1,raise_arms_horizontally,21.6 14.54.25.xlsx,left,1
+val1,raise_arms_horizontally,21.6 14.54.25.xlsx,right,1
+val1,raise_arms_horizontally,21.6 14.7.23.xlsx,left,0
+val1,raise_arms_horizontally,21.6 14.7.23.xlsx,right,0
+val1,raise_arms_horizontally,21.6 15.13.10.xlsx,left,1
+val1,raise_arms_horizontally,21.6 15.13.10.xlsx,right,1
+val1,raise_arms_horizontally,21.6 15.2.35.xlsx,left,0
+val1,raise_arms_horizontally,21.6 15.2.35.xlsx,right,0
+val1,raise_arms_horizontally,21.6 15.21.13.xlsx,left,0
+val1,raise_arms_horizontally,21.6 15.21.13.xlsx,right,0
+val1,raise_arms_horizontally,21.6 15.36.34.xlsx,left,0
+val1,raise_arms_horizontally,21.6 15.36.34.xlsx,right,0
+val1,raise_arms_horizontally,21.6 15.44.14.xlsx,left,1
+val1,raise_arms_horizontally,21.6 15.44.14.xlsx,right,1
+val1,raise_arms_horizontally,21.6 15.55.3.xlsx,left,0
+val1,raise_arms_horizontally,21.6 15.55.3.xlsx,right,0
+val1,raise_arms_horizontally,21.6 16.13.49.xlsx,left,1
+val1,raise_arms_horizontally,21.6 16.13.49.xlsx,right,1
+val1,raise_arms_horizontally,21.6 16.22.20.xlsx,left,0
+val1,raise_arms_horizontally,21.6 16.22.20.xlsx,right,0
+val1,raise_arms_horizontally,21.6 16.3.21.xlsx,left,1
+val1,raise_arms_horizontally,21.6 16.3.21.xlsx,right,1
+val1,raise_arms_horizontally,21.6 16.35.26.xlsx,left,0
+val1,raise_arms_horizontally,21.6 16.35.26.xlsx,right,0
+val1,raise_arms_horizontally,21.6 16.44.8.xlsx,left,1
+val1,raise_arms_horizontally,21.6 16.44.8.xlsx,right,1
+val1,raise_arms_horizontally,22.6 13.30.41.xlsx,left,0
+val1,raise_arms_horizontally,22.6 13.30.41.xlsx,right,0
+val1,raise_arms_horizontally,22.6 13.37.22.xlsx,left,1
+val1,raise_arms_horizontally,22.6 13.37.22.xlsx,right,1
+val1,raise_arms_horizontally,22.6 13.45.32.xlsx,left,1
+val1,raise_arms_horizontally,22.6 13.45.32.xlsx,right,1
+val1,raise_arms_horizontally,22.6 13.51.51.xlsx,left,0
+val1,raise_arms_horizontally,22.6 13.51.51.xlsx,right,0
+val1,raise_arms_horizontally,22.6 14.15.58.xlsx,left,1
+val1,raise_arms_horizontally,22.6 14.15.58.xlsx,right,1
+val1,raise_arms_horizontally,22.6 14.2.23.xlsx,left,0
+val1,raise_arms_horizontally,22.6 14.2.23.xlsx,right,0
+val1,raise_arms_horizontally,22.6 14.22.38.xlsx,left,0
+val1,raise_arms_horizontally,22.6 14.22.38.xlsx,right,0
+val1,raise_arms_horizontally,22.6 14.30.19.xlsx,left,0
+val1,raise_arms_horizontally,22.6 14.30.19.xlsx,right,0
+val1,raise_arms_horizontally,22.6 14.37.50.xlsx,left,1
+val1,raise_arms_horizontally,22.6 14.37.50.xlsx,right,1
+val1,raise_arms_horizontally,22.6 14.44.50.xlsx,left,1
+val1,raise_arms_horizontally,22.6 14.44.50.xlsx,right,1
+val1,raise_arms_horizontally,22.6 14.51.31.xlsx,left,0
+val1,raise_arms_horizontally,22.6 14.51.31.xlsx,right,0
+val1,raise_arms_horizontally,22.6 14.58.13.xlsx,left,0
+val1,raise_arms_horizontally,22.6 14.58.13.xlsx,right,0
+val1,raise_arms_horizontally,22.6 14.8.54.xlsx,left,1
+val1,raise_arms_horizontally,22.6 14.8.54.xlsx,right,1
+val1,raise_arms_horizontally,22.6 15.4.52.xlsx,left,1
+val1,raise_arms_horizontally,22.6 15.4.52.xlsx,right,1
+val1,bend_elbows,21.6 10.13.55.xlsx,left,1
+val1,bend_elbows,21.6 10.13.55.xlsx,right,1
+val1,bend_elbows,21.6 10.42.22.xlsx,left,1
+val1,bend_elbows,21.6 10.42.22.xlsx,right,1
+val1,bend_elbows,21.6 10.5.25.xlsx,left,0
+val1,bend_elbows,21.6 10.5.25.xlsx,right,0
+val1,bend_elbows,21.6 10.52.40.xlsx,left,0
+val1,bend_elbows,21.6 10.52.40.xlsx,right,0
+val1,bend_elbows,21.6 11.13.1.xlsx,left,1
+val1,bend_elbows,21.6 11.13.1.xlsx,right,1
+val1,bend_elbows,21.6 11.4.46.xlsx,left,0
+val1,bend_elbows,21.6 11.4.46.xlsx,right,0
+val1,bend_elbows,21.6 12.1.52.xlsx,left,1
+val1,bend_elbows,21.6 12.1.52.xlsx,right,1
+val1,bend_elbows,21.6 12.10.25.xlsx,left,0
+val1,bend_elbows,21.6 12.10.25.xlsx,right,0
+val1,bend_elbows,21.6 12.21.32.xlsx,left,0
+val1,bend_elbows,21.6 12.21.32.xlsx,right,0
+val1,bend_elbows,21.6 12.29.37.xlsx,left,1
+val1,bend_elbows,21.6 12.29.37.xlsx,right,1
+val1,bend_elbows,21.6 12.59.26.xlsx,left,1
+val1,bend_elbows,21.6 12.59.26.xlsx,right,1
+val1,bend_elbows,21.6 13.7.26.xlsx,left,0
+val1,bend_elbows,21.6 13.7.26.xlsx,right,0
+val1,bend_elbows,21.6 14.16.1.xlsx,left,1
+val1,bend_elbows,21.6 14.16.1.xlsx,right,1
+val1,bend_elbows,21.6 14.54.25.xlsx,left,1
+val1,bend_elbows,21.6 14.54.25.xlsx,right,1
+val1,bend_elbows,21.6 14.7.23.xlsx,left,0
+val1,bend_elbows,21.6 14.7.23.xlsx,right,0
+val1,bend_elbows,21.6 15.13.10.xlsx,left,1
+val1,bend_elbows,21.6 15.13.10.xlsx,right,1
+val1,bend_elbows,21.6 15.2.35.xlsx,left,0
+val1,bend_elbows,21.6 15.2.35.xlsx,right,0
+val1,bend_elbows,21.6 15.21.13.xlsx,left,0
+val1,bend_elbows,21.6 15.21.13.xlsx,right,0
+val1,bend_elbows,21.6 15.36.34.xlsx,left,0
+val1,bend_elbows,21.6 15.36.34.xlsx,right,0
+val1,bend_elbows,21.6 15.44.14.xlsx,left,1
+val1,bend_elbows,21.6 15.44.14.xlsx,right,1
+val1,bend_elbows,21.6 15.55.3.xlsx,left,0
+val1,bend_elbows,21.6 15.55.3.xlsx,right,0
+val1,bend_elbows,21.6 16.13.49.xlsx,left,1
+val1,bend_elbows,21.6 16.13.49.xlsx,right,1
+val1,bend_elbows,21.6 16.22.20.xlsx,left,0
+val1,bend_elbows,21.6 16.22.20.xlsx,right,0
+val1,bend_elbows,21.6 16.3.21.xlsx,left,1
+val1,bend_elbows,21.6 16.3.21.xlsx,right,1
+val1,bend_elbows,21.6 16.35.26.xlsx,left,0
+val1,bend_elbows,21.6 16.35.26.xlsx,right,0
+val1,bend_elbows,21.6 16.44.8.xlsx,left,1
+val1,bend_elbows,21.6 16.44.8.xlsx,right,1
+val1,bend_elbows,22.6 13.30.41.xlsx,left,0
+val1,bend_elbows,22.6 13.30.41.xlsx,right,0
+val1,bend_elbows,22.6 13.37.22.xlsx,left,1
+val1,bend_elbows,22.6 13.37.22.xlsx,right,1
+val1,bend_elbows,22.6 13.45.32.xlsx,left,1
+val1,bend_elbows,22.6 13.45.32.xlsx,right,1
+val1,bend_elbows,22.6 13.51.51.xlsx,left,0
+val1,bend_elbows,22.6 13.51.51.xlsx,right,0
+val1,bend_elbows,22.6 14.15.58.xlsx,left,1
+val1,bend_elbows,22.6 14.15.58.xlsx,right,1
+val1,bend_elbows,22.6 14.2.23.xlsx,left,0
+val1,bend_elbows,22.6 14.2.23.xlsx,right,0
+val1,bend_elbows,22.6 14.22.38.xlsx,left,0
+val1,bend_elbows,22.6 14.22.38.xlsx,right,0
+val1,bend_elbows,22.6 14.30.19.xlsx,left,0
+val1,bend_elbows,22.6 14.30.19.xlsx,right,0
+val1,bend_elbows,22.6 14.37.50.xlsx,left,1
+val1,bend_elbows,22.6 14.37.50.xlsx,right,1
+val1,bend_elbows,22.6 14.44.50.xlsx,left,1
+val1,bend_elbows,22.6 14.44.50.xlsx,right,1
+val1,bend_elbows,22.6 14.51.31.xlsx,left,0
+val1,bend_elbows,22.6 14.51.31.xlsx,right,0
+val1,bend_elbows,22.6 14.58.13.xlsx,left,0
+val1,bend_elbows,22.6 14.58.13.xlsx,right,0
+val1,bend_elbows,22.6 14.8.54.xlsx,left,1
+val1,bend_elbows,22.6 14.8.54.xlsx,right,1
+val1,bend_elbows,22.6 15.4.52.xlsx,left,1
+val1,bend_elbows,22.6 15.4.52.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 10.13.55.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 10.13.55.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 10.42.22.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 10.42.22.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 10.5.25.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 10.5.25.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 10.52.40.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 10.52.40.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 11.13.1.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 11.13.1.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 11.4.46.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 11.4.46.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 12.1.52.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 12.1.52.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 12.10.25.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 12.10.25.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 12.21.32.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 12.21.32.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 12.29.37.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 12.29.37.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 12.59.26.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 12.59.26.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 13.7.26.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 13.7.26.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 14.16.1.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 14.16.1.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 14.54.25.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 14.54.25.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 14.7.23.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 14.7.23.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 15.13.10.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 15.13.10.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 15.2.35.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 15.2.35.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 15.21.13.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 15.21.13.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 15.36.34.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 15.36.34.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 15.44.14.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 15.44.14.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 15.55.3.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 15.55.3.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 16.13.49.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 16.13.49.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 16.22.20.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 16.22.20.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 16.3.21.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 16.3.21.xlsx,right,1
+val1,raise_arms_bend_elbows,21.6 16.35.26.xlsx,left,0
+val1,raise_arms_bend_elbows,21.6 16.35.26.xlsx,right,0
+val1,raise_arms_bend_elbows,21.6 16.44.8.xlsx,left,1
+val1,raise_arms_bend_elbows,21.6 16.44.8.xlsx,right,1
+val1,raise_arms_bend_elbows,22.6 13.30.41.xlsx,left,0
+val1,raise_arms_bend_elbows,22.6 13.30.41.xlsx,right,0
+val1,raise_arms_bend_elbows,22.6 13.37.22.xlsx,left,1
+val1,raise_arms_bend_elbows,22.6 13.37.22.xlsx,right,1
+val1,raise_arms_bend_elbows,22.6 13.45.32.xlsx,left,1
+val1,raise_arms_bend_elbows,22.6 13.45.32.xlsx,right,1
+val1,raise_arms_bend_elbows,22.6 13.51.51.xlsx,left,0
+val1,raise_arms_bend_elbows,22.6 13.51.51.xlsx,right,0
+val1,raise_arms_bend_elbows,22.6 14.15.58.xlsx,left,1
+val1,raise_arms_bend_elbows,22.6 14.15.58.xlsx,right,1
+val1,raise_arms_bend_elbows,22.6 14.2.23.xlsx,left,0
+val1,raise_arms_bend_elbows,22.6 14.2.23.xlsx,right,0
+val1,raise_arms_bend_elbows,22.6 14.22.38.xlsx,left,0
+val1,raise_arms_bend_elbows,22.6 14.22.38.xlsx,right,0
+val1,raise_arms_bend_elbows,22.6 14.30.19.xlsx,left,0
+val1,raise_arms_bend_elbows,22.6 14.30.19.xlsx,right,0
+val1,raise_arms_bend_elbows,22.6 14.37.50.xlsx,left,1
+val1,raise_arms_bend_elbows,22.6 14.37.50.xlsx,right,1
+val1,raise_arms_bend_elbows,22.6 14.44.50.xlsx,left,1
+val1,raise_arms_bend_elbows,22.6 14.44.50.xlsx,right,1
+val1,raise_arms_bend_elbows,22.6 14.51.31.xlsx,left,0
+val1,raise_arms_bend_elbows,22.6 14.51.31.xlsx,right,0
+val1,raise_arms_bend_elbows,22.6 14.58.13.xlsx,left,0
+val1,raise_arms_bend_elbows,22.6 14.58.13.xlsx,right,0
+val1,raise_arms_bend_elbows,22.6 14.8.54.xlsx,left,1
+val1,raise_arms_bend_elbows,22.6 14.8.54.xlsx,right,1
+val1,raise_arms_bend_elbows,22.6 15.4.52.xlsx,left,1
+val1,raise_arms_bend_elbows,22.6 15.4.52.xlsx,right,1

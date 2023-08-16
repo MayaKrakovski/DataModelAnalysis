@@ -203,7 +203,7 @@ def vel_features(data, fps, show_plt, title="no title"):
     return mean_sd
 
 
-def repetition_features(data, participant, hand, framepersec, plot_maxmin=False):
+def repetition_features(data, participant, hand, framepersec, ds, plot_maxmin=False):
     data_maxmin = max_min(data)
     if plot_maxmin:
         max_min_plots(participant+" "+hand, data)
@@ -246,8 +246,10 @@ def repetition_features(data, participant, hand, framepersec, plot_maxmin=False)
     data_repDF["num_frames_down"] = frames_down_list
     data_repDF.insert(0, "hand", [hand] * len(data_repDF))
     data_repDF.insert(0, "Participant", [participant] * len(data_repDF))
+    data_repDF.insert(0, "Source", [ds]*len(data_repDF))
 
-    # (right[int(rep_temp[2])]-right[int(rep_temp[1])])/frames_up # - Vel calc by frame.
+
+# (right[int(rep_temp[2])]-right[int(rep_temp[1])])/frames_up # - Vel calc by frame.
     veldf_down = pd.DataFrame(vel_features_down, columns=['vel_mean_down', 'vel_sd_down',
                                                           'acc_mean_down', 'acc_sd_down'])
     veldf_up = pd.DataFrame(vel_features_up, columns=['vel_mean_up', 'vel_sd_up', 'acc_mean_up', 'acc_sd_up'])
@@ -324,14 +326,15 @@ def feature_extraction(data_source, ex_name, df):
         right = (df.iloc[i]).dropna().to_numpy()
         # print(right)
         name = right[1]  # Participant ID
+        ds = right[2]  # datasource
         # print(name)
         right = filtfilt(y, x, right[5:])
         left = (df.iloc[i+1]).dropna().to_numpy()
         # print(left)
         left = filtfilt(y, x, left[5:])
 
-        right_repDF = repetition_features(right, name, 'right', fps)
-        left_repDF = repetition_features(left, name, 'left', fps)
+        right_repDF = repetition_features(right, name, 'right', fps, ds)
+        left_repDF = repetition_features(left, name, 'left', fps, ds)
         vel_df = pd.concat([vel_df, right_repDF, left_repDF])
 
         fft_features_temp = fft_features_df(right, left, fps, name)
@@ -339,12 +342,12 @@ def feature_extraction(data_source, ex_name, df):
 
     # Combine repetitions vel and acc features
     vel_df = vel_df.dropna()  # Drop rows with NA - so aggregate values won't be affect
-    col_names = vel_df.columns[6:]  # columns to aggregate mean
+    col_names = vel_df.columns[7:]  # columns to aggregate mean
     # defining the columns' aggregation functions
     col_dict = {'rep': 'count'}
     for c in col_names:
         col_dict[c] = ['mean', 'std']
-    vel_df_grouped = vel_df.groupby(['Participant', 'hand']).agg(col_dict).reset_index()
+    vel_df_grouped = vel_df.groupby(['Source', 'Participant', 'hand']).agg(col_dict).reset_index()
     vel_df_grouped.columns = vel_df_grouped.columns.map('_'.join).str.strip('_')
 
     features = pd.merge(vel_df_grouped, fft_df, on=["Participant", "hand"])
@@ -375,10 +378,11 @@ def extraction_main(old_data_form=False, valexp=True):
             feature_extraction(data_source, ex_name, df)
     else:
         # extract features for raw_data_scaled
-        path = 'CSV/Raw Data/raw_data_scaled.csv'
+        path = 'CSV/Raw Data/all_raw_data_scaled.csv'
         path = 'CSV/Raw Data/val1_raw_data_scaled.csv'
+        path = 'CSV/Raw Data/all_raw_data_scaled_by_local_minmax.csv'
         df = pd.read_csv(path)
-        data_source = "val1_raw_scaled"
+        data_source = "raw_scaled_local"
         for ex_name in df["Exercise"].unique():
             temp_df = df[df["Exercise"] == ex_name]
             feature_extraction(data_source, ex_name, temp_df)
@@ -483,7 +487,7 @@ def count_participants():
 def scale_features():
     # TODO CHECK THE SCALING
     # Combine all data sources and exercises files to one df
-    datasource = ['maya', 'naama', 'naama_pilot']
+    datasource = ['maya', 'naama', 'naama_pilot', 'val1']
     exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows']
 
     df = pd.DataFrame()
@@ -495,8 +499,10 @@ def scale_features():
             df = df.append(temp, ignore_index=True)
 
     df = df.dropna()  # data with only one detected cycle -> have null values in some features.
-    df.to_csv('CSV\\features\\allfeaturesbyhand.csv')  # combined features file Save before scale
-    feature_col = 5
+    df.to_csv('CSV\\features\\allfeatures_nonscaled.csv')  # combined features file Save before scale
+    df = pd.read_csv('CSV\\features\\allfeatures_nonscaled.csv')
+
+    feature_col = 6
     features = df.columns[feature_col:]
 
     # standardize by 'maya' data source
@@ -521,30 +527,36 @@ def scale_features():
     print("standardize values:")
     print(d_standardize_values)
     # save dict
-    pickle.dump(d_standardize_values, open('standardize_values_dict', 'wb'))
+    # pickle.dump(d_standardize_values, open('standardize_values_dict', 'wb'))
 
     # save combined scaled df
-    # df.to_csv('CSV\\features\\allfeaturesbyhandscaled.csv')
+    # df.to_csv('CSV\\features\\allfeatures_scaled.csv')
 
 
 def combine():
-    path = 'CSV/Raw Data/'
+    path = 'CSV/features/'
     data_files = os.listdir(path)
-    filtered_list = [item for item in data_files if "val1" in item]
+    filtered_list = [item for item in data_files if "raw_scaled" in item]
+    filtered_list = ['raw_scaledbend_elbowsfeaturesbyhand.csv', 'raw_scaledraise_arms_bend_elbowsfeaturesbyhand.csv', 'raw_scaledraise_arms_horizontallyfeaturesbyhand.csv']
 
-    ds = 'val1'
+    ds = 'raw_scaled'
     data = pd.DataFrame()
     for e in filtered_list:
-        ex_name = e.split('val1')[1].split('.csv')[0]
-        data_path = 'CSV/Raw Data/' + ds + ex_name + '.csv'
-        df = pd.read_csv(data_path)
-        feature_extraction(ds, ex_name, df)
+        ex_name = e.split('raw_scaled')[1].split('.csv')[0].split('featuresbyhand')[0]
+        # data_path = 'CSV/Raw Data/' + ds + ex_name + '.csv'
+        # df = pd.read_csv(data_path)
+        # feature_extraction(ds, ex_name, df)
         temp = pd.read_csv('CSV/features/'+ds+ex_name+"featuresbyhand.csv")
         temp.insert(1, "Exercise", [ex_name]*len(temp.index), True)
-        temp.insert(1, "Source", [ds]*len(temp.index), True)
         data = data.append(temp, ignore_index=True)
 
-    data.to_csv('CSV/features/val1allfeaturesbyhand.csv')
+    data.to_csv('CSV/features/allfeatures_raw_scaled.csv')
+
+    # add labels
+    labels = pd.read_csv('CSV/features/labels.csv')
+    data = pd.read_csv('CSV/features/allfeatures_raw_scaled.csv')
+    result_left = pd.merge(labels,data, on=['Source', 'Exercise', 'Participant', 'hand'], how='left')
+    result_left.to_csv('CSV/features/allfeatures_raw_scaled_label.csv')
 
 
 if __name__ == "__main__":

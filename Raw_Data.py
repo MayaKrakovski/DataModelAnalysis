@@ -9,27 +9,35 @@ from scipy.signal import find_peaks
 from scipy.signal import butter, filtfilt
 
 
-def min_max_scale_signal(signal, exercise_range, desired_min=0, desired_max=1):
-    min_val, max_val = exercise_range[0], exercise_range[1]
+def min_max_scale_signal(signal, exercise_range, desired_min=0, desired_max=1, by_dict=False):
+    # by_dict - True if the scaling is by the predefined values of each exercise
+    # False - if it is by the min/max value of the signal
+    if by_dict:
+        min_val, max_val = exercise_range[0], exercise_range[1]
+    else:
+        min_val = signal.min()
+        max_val = signal.max()
     scaled_signal = (signal - min_val) / (max_val - min_val) * (desired_max - desired_min) + desired_min
     return scaled_signal
 
 
 def scale_raw_data():
     exercises = {'raise_arms_horizontally': [30, 120], 'bend_elbows': [0, 180],'raise_arms_bend_elbows': [0, 180]}
+    data_sources = ['maya', 'naama', 'naama_pilot', 'val1']
 
     df = pd.DataFrame()
-    for e in exercises:
-        temp = pd.read_csv('CSV/Raw Data/'+'val1'+e+'.csv')
-        signalcols = temp.columns[temp.columns.str.startswith('Unnamed')]
-        signal = temp[signalcols]
-        scaled_signal = min_max_scale_signal(signal, exercises[e])
-        temp[signalcols] = scaled_signal
-        temp.insert(1, "Exercise", [e]*len(temp.index), True)
-        temp.insert(1, "Source", ["val1"]*len(temp.index), True)
-        df = df.append(temp, ignore_index=True)
+    for d in data_sources:
+        for e in exercises:
+            temp = pd.read_csv('CSV/Raw Data/'+d+'_'+e+'.csv')
+            signalcols = temp.columns[temp.columns.str.startswith('Unnamed')]
+            signal = temp[signalcols]
+            scaled_signal = min_max_scale_signal(signal, exercises[e], 0, 1, True)
+            temp[signalcols] = scaled_signal
+            temp.insert(1, "Exercise", [e]*len(temp.index), True)
+            temp.insert(1, "Source", [d]*len(temp.index), True)
+            df = df.append(temp, ignore_index=True)
 
-    df.to_csv('CSV\\Raw Data\\val1_raw_data_scaled.csv')
+    df.to_csv('CSV\\Raw Data\\all_raw_data_scaled_by_local_minmax.csv')
 
     # plotting
     framepersec = 30  # frame per seconds of nuitrack
@@ -38,7 +46,7 @@ def scale_raw_data():
     filter_order = 2
     y, x = butter(filter_order, cutoff_freq/(framepersec/2))
     plt.style.use('ggplot')
-    df = pd.read_csv('CSV/Raw Data/raw_data_scaled.csv')
+    df = pd.read_csv('CSV/Raw Data/all_raw_data_scaled_by_local_minmax.csv')
     ids = range(0, len(df.index), 2)
     for i in ids:  # each participant have 2 rows (1-right hand, 2-left hand)
         right_data = df.iloc[i]
@@ -46,10 +54,10 @@ def scale_raw_data():
         source = right_data["Source"]
         exercise = right_data["Exercise"]
         right_data = right_data[4:].dropna().to_numpy()
-        right_data = filtfilt(y, x, right_data[2:])
+        right_data = filtfilt(y, x, right_data)
         left_data = df.iloc[i+1]
         left_data = left_data[4:].dropna().to_numpy()
-        left_data = filtfilt(y, x, left_data[2:])
+        left_data = filtfilt(y, x, left_data)
         plt.figure()
         plt.title(name)
         plt.plot(right_data, label="right hand")
@@ -61,7 +69,7 @@ def scale_raw_data():
 
 
 def add_angle(path):
-    f = open('CSV/Raw Data/trynewmaya_'+'open_arms_and_forward'+'.csv', 'w', newline='')
+    f = open('CSV/Raw Data/trynewnamma_'+'open_and_close_arms'+'.csv', 'w', newline='')
     writer = csv.writer(f)
     writer.writerow(['Participant','hand'])
 
@@ -72,7 +80,7 @@ def add_angle(path):
         wb = openpyxl.load_workbook(filename=workbook_path)
         sheets_name = wb.sheetnames
         for i in sheets_name:
-            if "open_arms_and_forward" in i and 'v2' not in i:
+            if "open_and_close_arms" in i and 'v2' not in i:
                 sheet = wb[i]
                 if wbn in participants:  # participants that tried again the same exercise, in the same session
                     p = wbn + '2'
@@ -113,6 +121,62 @@ def add_angle(path):
                     left_angles.append(left)
                 writer.writerow(right_angles)
                 writer.writerow(left_angles)
+    f.close()
+
+
+def add_angle2(p):
+    f = open('CSV/Raw Data/trynewnamma_'+'open_arms_and_forward'+'.csv', 'w', newline='')
+    writer = csv.writer(f)
+    writer.writerow(['Participant','hand'])
+    participants = []
+    # iterate over all the files in directory 'parent'
+    for path,dirs,files in os.walk(p):
+        for file in files:
+            workbook_path = path+ "//" + file
+            wb = openpyxl.load_workbook(filename=workbook_path)
+            sheets_name = wb.sheetnames
+            for i in sheets_name:
+                if "open_arms_and_forward" in i and 'v2' not in i:
+                    sheet = wb[i]
+                    if file in participants:  # participants that tried again the same exercise, in the same session
+                        p = file + '2'
+                    else:
+                        p = file
+                    participants.append(p)
+                    # Loop over columns in the sheet
+                    right_angles = [p, "right"]
+                    left_angles = [p, "left"]
+                    for column in sheet.iter_cols(min_col=2):
+                        column_data = [cell.value for cell in column]
+                        RIGHT_SHOULDER_x = column_data[6]
+                        RIGHT_SHOULDER_y = column_data[7]
+                        RIGHT_SHOULDER_z = column_data[8]
+                        RIGHT_ELBOW_x = column_data[10]
+                        RIGHT_ELBOW_y = column_data[11]
+                        RIGHT_ELBOW_z = column_data[12]
+                        RIGHT_HAND_x = column_data[14]
+                        RIGHT_HAND_y = column_data[15]
+                        RIGHT_HAND_z = column_data[16]
+                        LEFT_SHOULDER_x = column_data[18]
+                        LEFT_SHOULDER_y = column_data[19]
+                        LEFT_SHOULDER_z = column_data[20]
+                        LEFT_ELBOW_x = column_data[22]
+                        LEFT_ELBOW_y = column_data[23]
+                        LEFT_ELBOW_z = column_data[24]
+                        LEFT_HAND_x = column_data[26]
+                        LEFT_HAND_y = column_data[27]
+                        LEFT_HAND_z = column_data[28]
+
+                        right = calc_angle(LEFT_SHOULDER_x, LEFT_SHOULDER_y, LEFT_SHOULDER_z,
+                                           RIGHT_SHOULDER_x, RIGHT_SHOULDER_y, RIGHT_SHOULDER_z,
+                                           RIGHT_HAND_x, RIGHT_HAND_y, RIGHT_HAND_z)
+                        left = calc_angle(RIGHT_SHOULDER_x, RIGHT_SHOULDER_y, RIGHT_SHOULDER_z,
+                                          LEFT_SHOULDER_x, LEFT_SHOULDER_y, LEFT_SHOULDER_z,
+                                          LEFT_HAND_x, LEFT_HAND_y, LEFT_HAND_z)
+                        right_angles.append(right)
+                        left_angles.append(left)
+                    writer.writerow(right_angles)
+                    writer.writerow(left_angles)
     f.close()
 
 
@@ -221,6 +285,7 @@ def maya_exp():
         arrange_data(path, ex[0], ex[1], ex[2])
         # create_graphs(ex_name[0], True, False)
 
+
 def validation_exp():
     p = r'CSV\Raw Data\validationexp1'
     exercises = [['raise_arms_horizontally', 50, 51], ['bend_elbows', 26, 27],['raise_arms_bend_elbows', 50, 51],
@@ -238,6 +303,7 @@ def validation_exp():
 def naama_exp():
     # 16 older adults, 2 sessions for each
     p = r'C:\Users\mayak\Downloads\naamaexp'
+    p = r'C:\Users\mayak\PycharmProjects\DataAnalysis\data\naamaexp'
     exercises = [['raise_arms_horizontally', 26, 27], ['bend_elbows', 26, 27],['open_arms_bend_elbows', 32, 33],
                  ['open_arms_and_forward', 34, 35]]
     for ex in exercises:
@@ -264,3 +330,7 @@ if __name__ == '__main__':
     # maya_exp()
     # naama_exp()
     # naama_pilot()
+
+    p = r'C:\Users\mayak\PycharmProjects\DataAnalysis\data\naamaexp'
+    add_angle2(p)
+

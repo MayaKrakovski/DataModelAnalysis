@@ -63,12 +63,14 @@ def scatter_plot():
     ds_dict = {'maya': 'older adults 1', 'naama': 'older adults 2', 'naama_pilot': 'young adults', 'maya_raw_scaled': 'older adults 1 - raw data scaled'}
     exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows', 'open_arms_and_forward']
 
-    df = pd.read_csv('CSV/features/allfeaturesbyhandscaled.csv')  # for plotting scaled data (only 3 exercises
-    df = pd.read_csv('CSV/features/allfeaturesbyhand.csv')  # for plotting not scaled data
+    df = pd.read_csv('CSV/features/old/allfeaturesbyhandscaled.csv')  # for plotting scaled data (only 3 exercises
+    df = pd.read_csv('CSV/features/old/allfeaturesbyhand.csv')  # for plotting not scaled data
+    df = pd.read_csv('CSV/features/allfeatures_nonscaled_label.csv')  # for plotting not scaled data
+
     feature_col = 6
     exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows']
 
-    df = pd.read_csv('CSV\\features\\newallfeaturesbyhand.csv') # for plotting raw scaled data
+    df = pd.read_csv('CSV/features/old/newallfeaturesbyhand.csv') # for plotting raw scaled data
     feature_col = 6
 
     features = df.columns[feature_col:]
@@ -123,7 +125,7 @@ def scatter_plot_labeld():
     file_name = 'allfeaturesbyhand_label.csv'  # File containing all data without scale
     file_name = 'allfeaturesbyhandscaled_label.csv' # File containing all data features scaled
     file_name = 'newallfeaturesbyhand_label.csv' # File containing all data raw scaled
-    df = pd.read_csv(f'CSV/features/{file_name}')
+    df = pd.read_csv(f'CSV/features/old/{file_name}')
     df = df[df['Source'] == 'maya']
     features = df.columns[5:]
     features = features[1:-2]
@@ -135,8 +137,8 @@ def scatter_plot_labeld():
     scores_pca_df = pd.DataFrame(scores_pca)
 
     plt.figure()
-    label = df["Exercise"]
-    uniq = df["Exercise"].unique()
+    label = df["label"]
+    uniq = df["label"].unique()
     for i in uniq:
         plt.plot(scores_pca[label == i, 0], scores_pca[label == i, 1], ls="", marker='o', label=i)
     # plt.suptitle(cluster_colname)

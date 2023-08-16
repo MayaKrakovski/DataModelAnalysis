@@ -52,7 +52,7 @@ def print_summary(logit_model):
 
 if __name__ == "__main__":
     # read data - features already scaled
-    file_name = '3ex_scale_data_labeled.csv' # File containing all data
+    file_name = 'CSV/features/old/3ex_scale_data_labeled.csv'  # File containing all data
     data = pd.read_csv(file_name)
 
     exercise_names = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows']
