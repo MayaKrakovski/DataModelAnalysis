@@ -126,3 +126,71 @@ if __name__ == "__main__":
     logit_model.summary2()
     print_summary(logit_model)
 
+
+
+
+data = [
+    ["Trained on older adults 1", "Non Scaled", 0.87, 0.84],
+    ["Trained on older adults 1", "Feature Scaled", 0.89, 0.62],
+    ["Trained on older adults 1", "Raw Scaled", 0.84, 0.82],
+    ["Trained on Validation", "Non Scaled", 0.73, 0.96],
+    ["Trained on Validation", "Feature Scaled", 0.83, 0.98],
+    ["Trained on Validation", "Feature Scaled by Validation", 0.59, 0.94],
+    ["Trained on Validation", "Raw Scaled", 0.68, 0.96],
+    ["Train on Both:", "Non Scaled", 0.8, 0.97],
+    ["Train on Both:", "Feature Scaled", 0.96, 0.97],
+    ["Train on Both:", "Feature Scaled by Validation", 0.93, 0.95],
+    ["Train on Both:", "Raw Scaled", 0.82, 0.93]
+]
+
+columns = ["Training Scenario", "Scaling Type", "Older Adults 1", "Validation"]
+df = pd.DataFrame(data, columns=columns)
+
+# Create a dictionary to map training scenarios to colors
+sns.set_palette("husl", 3)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+# Plot for Older Adults 1
+handles = []
+labels = []
+for training_scenario, group in df.groupby("Training Scenario"):
+    line = ax1.plot(
+        group["Scaling Type"],
+        group["Older Adults 1"],
+        marker='o',
+        linestyle='-',
+        label=training_scenario
+    )[0]
+    handles.append(line)
+    labels.append(training_scenario)
+ax1.set_xlabel("Scaling Type")
+ax1.set_ylabel("Accuracy")
+ax1.set_title("Older Adults 1 vs Scaling Type")
+ax1.set_xticks(range(len(df["Scaling Type"].unique())))  # Set tick positions
+ax1.set_xticklabels(['Non Scaled', 'Feature Scaled by Older Adults 1',
+       'Feature Scaled by Validation', 'Raw Scaled'], rotation=45)  # Set tick labels
+ax1.set_ylim(0, 1)
+ax1.grid(True)
+
+# Plot for Validation
+for training_scenario, group in df.groupby("Training Scenario"):
+    ax2.plot(
+        group["Scaling Type"],
+        group["Validation"],
+        marker='o',
+        linestyle='-'
+    )
+ax2.set_xlabel("Scaling Type")
+ax2.set_ylabel("Accuracy")
+ax2.set_title("Validation vs Scaling Type")
+ax2.set_xticks(range(len(df["Scaling Type"].unique())))  # Set tick positions
+ax2.set_xticklabels(['Non Scaled', 'Feature Scaled by Older Adults 1',
+       'Feature Scaled by Validation', 'Raw Scaled'], rotation=45)  # Set tick labels
+ax2.set_ylim(0, 1)
+ax2.grid(True)
+
+# Create a common legend above subplots
+fig.legend(handles, labels, loc='lower center')
+# Adjust layout and display the plot
+plt.tight_layout()
+plt.show()

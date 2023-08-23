@@ -22,7 +22,8 @@ def min_max_scale_signal(signal, exercise_range, desired_min=0, desired_max=1, b
 
 
 def scale_raw_data():
-    exercises = {'raise_arms_horizontally': [30, 120], 'bend_elbows': [0, 180],'raise_arms_bend_elbows': [0, 180]}
+    exercises = {'raise_arms_horizontally': [30, 120], 'bend_elbows': [0, 180], 'raise_arms_bend_elbows': [0, 180]
+                 ,'open_arms_and_forward': [90, 180]}
     data_sources = ['maya', 'naama', 'naama_pilot', 'val1']
 
     df = pd.DataFrame()
@@ -125,7 +126,8 @@ def add_angle(path):
 
 
 def add_angle2(p):
-    f = open('CSV/Raw Data/trynewnamma_'+'open_arms_and_forward'+'.csv', 'w', newline='')
+    # For naamas files
+    f = open('CSV/Raw Data/trynewnammapilot_'+'open_arms_and_forward'+'.csv', 'w', newline='')
     writer = csv.writer(f)
     writer.writerow(['Participant','hand'])
     participants = []
@@ -312,6 +314,7 @@ def naama_exp():
 
 def naama_pilot():
     p = r'C:\Users\mayak\Downloads\naamapilot'
+    p = r'C:\Users\mayak\PycharmProjects\DataAnalysis\data\naamapilot'
     exercises = [['raise_arms_horizontally', 26, 27], ['bend_elbows', 26, 27],['open_arms_bend_elbows', 32, 33],
                  ['open_arms_and_forward', 34, 35]]
     for ex in exercises:
@@ -331,6 +334,5 @@ if __name__ == '__main__':
     # naama_exp()
     # naama_pilot()
 
-    p = r'C:\Users\mayak\PycharmProjects\DataAnalysis\data\naamaexp'
     add_angle2(p)
 

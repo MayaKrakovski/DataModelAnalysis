@@ -74,24 +74,37 @@ def model_evaluation(model, X_test, y_test):
     return result_df
 
 
-def models():
+def models(file_name):
     # read Data and filter to maya source only
     file_name = 'allfeatures_nonscaled_label.csv'  # File containing all data
     file_name = 'allfeatures_scaled_label.csv'  # File containing all data
+    file_name = 'allfeatures_scaledbyval1_label.csv'
     file_name = 'allfeatures_raw_scaled_label.csv'  # File containing all data
     df = pd.read_csv(f'CSV/features/{file_name}')
 
-    df_maya = df[df['Source'] == 'maya']
+    df_maya = df[(df['Source'] == 'val1') | (df['Source'] == 'maya')]
+    # df_maya = df[(df['Source'] == 'val1')]
     features = df_maya.columns[6:]
     features = features[1:-2]
     X = df_maya[features]
     y = df_maya["label"]
     # split 80 train 20 test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_test_maya = X_test[X_test.index.isin(df_maya[df_maya['Source'] == 'maya'].index)]
+    y_test_maya = y_test[y_test.index.isin(df_maya[df_maya['Source'] == 'maya'].index)]
+
+    X_test_val1 = X_test[X_test.index.isin(df_maya[df_maya['Source'] == 'val1'].index)]
+    y_test_val1 = y_test[y_test.index.isin(df_maya[df_maya['Source'] == 'val1'].index)]
 
     # model 1
+    print("-----------model 1 ---------------")
     model1 = logistic(X_train, X_test, y_train, y_test, 1, 'Model 1 - All Features with L1')
-    pickle.dump(model1, open('model1r.sav', 'wb'))
+    # pickle.dump(model1, open('model1r.sav', 'wb'))
+    # Training on both - evaluation seperate:
+    print("-----------model 1 maya---------------")
+    model_evaluation(model1, X_test_maya, y_test_maya)
+    print("-----------model 1 val---------------")
+    model_evaluation(model1, X_test_val1, y_test_val1)
 
     # selected features for model 2 and 3
     selected_features = logistic_by_ex(df, features, X_train, X_test, y_train, y_test)
@@ -101,11 +114,25 @@ def models():
     X_test_sel = X_test[flat_set]
 
     # model 2
+    print("-----------model 2 ---------------")
     model2 = logistic(X_train_sel, X_test_sel, y_train, y_test, 1, 'Model 2 - Selected Features with L1')
-    pickle.dump(model2, open('model2r.sav', 'wb'))
+    # pickle.dump(model2, open('model2r.sav', 'wb'))
+    X_test_sel_maya = X_test_sel[X_test_sel.index.isin(df_maya[df_maya['Source'] == 'maya'].index)]
+    X_test_sel_val1 = X_test_sel[X_test_sel.index.isin(df_maya[df_maya['Source'] == 'val1'].index)]
+
+    print("-----------model 2 maya ---------------")
+    model_evaluation(model2, X_test_sel_maya, y_test_maya)
+    print("-----------model 2 val ---------------")
+    model_evaluation(model2, X_test_sel_val1, y_test_val1)
+
     # model 3
     model3 = logistic(X_train_sel, X_test_sel, y_train, y_test, 0, 'Model 3 - Selected Features')
-    pickle.dump(model3, open('model3r.sav', 'wb'))
+    # pickle.dump(model3, open('model3r.sav', 'wb'))
+
+    print("-----------model 3 maya ---------------")
+    model_evaluation(model3, X_test_sel_maya, y_test_maya)
+    print("-----------model 3 val ---------------")
+    model_evaluation(model3, X_test_sel_val1, y_test_val1)
 
 
 def test_data(model):
@@ -113,7 +140,9 @@ def test_data(model):
     df = pd.read_csv(f'CSV/features/{file_name}')
     features = model.model.data.xnames
 
-    data_sources = ['naama', 'naama_pilot', 'val1']
+    data_sources = ['naama', 'naama_pilot', 'maya', 'val1']
+    data_sources = ['naama', 'naama_pilot']
+
     for ds in data_sources:
         print(f"-------------------{ds}------------------")
         df_test = df[df['Source'] == ds]
@@ -196,13 +225,19 @@ def plot_signals(result_df):
             ax.plot(temp)
         fig.suptitle(f"{e}: FN")
 
+
 if __name__ == '__main__':
-    # models()
+    file_names = ['allfeatures_nonscaled_label.csv', 'allfeatures_scaled_label.csv','allfeatures_scaledbyval1_label.csv'
+        ,'allfeatures_raw_scaled_label.csv']
+    file_names = ['allfeatures_nonscaled_label.csv']
+    for f in file_names:
+        print(f"-------------{f}-----------")
+        models(f)
 
     # pickle.dump(logit_model, open('model1.sav', 'wb'))
-
-    for m in ['model1r']:
-        model = pickle.load(open(f'{m}.sav', 'rb'))
-
-        test_data(model)
+    #
+    # for m in ['model1r']:
+    #     model = pickle.load(open(f'{m}.sav', 'rb'))
+    #
+    #     test_data(model)
 

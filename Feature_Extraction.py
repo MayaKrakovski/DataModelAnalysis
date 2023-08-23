@@ -506,7 +506,7 @@ def scale_features():
     features = df.columns[feature_col:]
 
     # standardize by 'maya' data source
-    df_maya = df[df['Source'] == 'maya']
+    df_maya = df[df['Source'] == 'val1']
     # for extracting the standardize values, saves in list to means and values
     d_standardize_values = {}
     for e in exercises:
@@ -530,7 +530,7 @@ def scale_features():
     # pickle.dump(d_standardize_values, open('standardize_values_dict', 'wb'))
 
     # save combined scaled df
-    # df.to_csv('CSV\\features\\allfeatures_scaled.csv')
+    df.to_csv('CSV\\features\\allfeatures_scaledbyval1.csv')
 
 
 def combine():
