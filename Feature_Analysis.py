@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from scipy.stats import kstest
 plt.style.use("ggplot")
-sns.set_palette("husl",6)
+sns.set_palette("husl",8)
 
 
 def features_plots_multi_exercises():
@@ -17,7 +17,7 @@ def features_plots_multi_exercises():
     df = pd.DataFrame()
     for ds in data_source:
         for e in exercises_list:
-            temp = pd.read_csv('CSV/features/'+ds+'_'+e+"featuresbyhand.csv" )
+            temp = pd.read_csv(r'C:/Users/mayak/PycharmProjects/DataAnalysis/CSV/features/old/'+ds+'_'+e+"featuresbyhand.csv" )
             temp.insert(1, "Exercise", [e]*len(temp.index), True)
             temp.insert(1, "Source", [ds]*len(temp.index), True)
             df = df.append(temp, ignore_index=True)
@@ -26,11 +26,67 @@ def features_plots_multi_exercises():
     features_name = df.columns[feature_col:]
     features_amount = len(features_name)
 
-    plt.figure()
+    df['Exercise'] = df['Exercise'].replace({'raise_arms_horizontally': '1', 'bend_elbows': '2', 'raise_arms_bend_elbows':'3'})
+    df['Source'] = df['Source'].replace({'maya': 'older adults', 'val1': 'young adults'})
+    df['label'] = df['label'].replace({0: 'Consistent & Correct', 1: 'Non-consistent &/or Incorrect'})
+    df['Combined'] = df['Source'] + ' - ' + df['label'].astype(str)
+
+    selected_colors = sns.color_palette("husl", 10)
+    selected_colors = [selected_colors[i] for i in [0, 1, 4, 7]]
+    sns.set_palette(selected_colors)
+
     for f_name in features_name:
         feature = df[f_name]
         plt.figure()
-        sns.boxplot(data=df, x=feature, y="Exercise", hue="Source")
+        sns.boxplot(data=df, y=feature, x="Exercise", hue="Combined")
+        plt.title(f_name)
+        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True, shadow=False, ncol=4)
+
+    # Define the number of subplots per row and column
+    subplots_per_row = 2
+    subplots_per_col = 2
+
+    # Calculate the number of rows needed
+    num_features = len(features_name)
+    num_rows = (num_features - 1) // subplots_per_row + 1
+
+    # Create lists to store legend handles and labels
+    # Iterate through features and create separate figures for each set of 2x2 subplots
+    for start_idx in range(0, num_features, subplots_per_row * subplots_per_col):
+        end_idx = start_idx + subplots_per_row * subplots_per_col
+        subset_features = features_name[start_idx:end_idx]
+
+        # Create a new figure with 2x2 subplots
+        fig, axes = plt.subplots(subplots_per_row, subplots_per_col, figsize=(10, 8))
+
+        # Flatten the axes array to simplify indexing
+        axes = axes.flatten()
+
+        # Iterate through the subset of features and create boxplots
+        for i, f_name in enumerate(subset_features):
+            feature = df[f_name]
+
+            # Create a boxplot in the current subplot
+            sns.boxplot(data=df, y=feature, x="Exercise", hue="Combined", ax=axes[i])
+
+            axes[i].set_title(f_name)
+            axes[i].set_ylabel("Value")  # Set y-axis label to "Value"
+            axes[i].legend().set_visible(False)  # Remove legend from individual subplots
+
+        # Extract the handles and labels from the first subplot
+        handles, labels = axes[0].get_legend_handles_labels()
+
+        # Adjust layout to prevent overlapping
+        plt.tight_layout()
+
+        # Show the plot for this set of 2x2 subplots
+        plt.show()
+
+    # Create a single legend for the entire figure
+    # fig.legend(handles=handles, labels=labels, ncol=2)
+
+    # Display the final figure
+    plt.show()
 
 
 def combine_data(onlymaya = True, raw = True):
@@ -200,7 +256,7 @@ def compare_dist_data_sources():
 def feature_hist():
     df = combine_data()
     featureColNum = 6
-    features_name = df.columns[featureColNum:]
+    features_name = df.columns[featureColNum:-2]
     for i in range(0,19):
         fig = plt.figure(constrained_layout=True, figsize=(6, 9))
         # create 3x1 subfigs
@@ -221,6 +277,15 @@ def feature_hist():
         fig.savefig('features hist/allex_'+str(i)+'.png')
 
 
+def features_stats(df_maya, features):
+    result = df_maya.groupby(['Source', 'Exercise']).agg(
+        **{f'{feature}_Mean': (f'{feature}', 'mean') for feature in features},
+        **{f'{feature}_Std': (f'{feature}', 'std') for feature in features},
+        **{f'{feature}_Min': (f'{feature}', 'min') for feature in features},
+        **{f'{feature}_Max': (f'{feature}', 'max') for feature in features}
+    ).reset_index()
+
+
 if __name__ == '__main__':
     # scatter_plot()
     # compare_dist_data_sources()
@@ -228,7 +293,7 @@ if __name__ == '__main__':
     df = combine_data()
     exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows', 'open_arms_and_forward']
     df_ex = df[df['Exercise'] == exercises[0]]
-    df_ex_tmp = df_ex[(df_ex["Source"] == 'maya') | (df_ex["Source"] == 'naama')]
+    df_ex_tmp = df_ex[(df_ex["Source"] == 'maya') | (df_ex["Source"] == 'val1')]
 
     feature_col = 6
     features = df.columns[feature_col:]

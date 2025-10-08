@@ -7,6 +7,7 @@ from sklearn.metrics import classification_report, confusion_matrix, precision_r
     roc_curve, auc
 import pickle
 import math
+import xgboost as xgb
 
 
 def print_summary(logit_model, t):
@@ -59,6 +60,14 @@ def logistic(X_train, X_test, y_train, y_test, alpha, title):
     return logit_model
 
 
+def xgboostmodel(X_train, X_test, y_train, y_test):
+    model = xgb.XGBClassifier(eval_metric='logloss')
+    model.fit(X_train, y_train)
+    model_evaluation(model, X_test, y_test)
+    return model
+    # y_pred = model.predict(X_test)
+
+
 def model_evaluation(model, X_test, y_test):
     predictions = model.predict(X_test)
     predictions = list(map(round, predictions))
@@ -85,7 +94,7 @@ def models(file_name):
     df_maya = df[(df['Source'] == 'val1') | (df['Source'] == 'maya')]
     # df_maya = df[(df['Source'] == 'val1')]
     features = df_maya.columns[6:]
-    features = features[1:-2]
+    features = features[0:-2]
     X = df_maya[features]
     y = df_maya["label"]
     # split 80 train 20 test
@@ -99,7 +108,9 @@ def models(file_name):
     # model 1
     print("-----------model 1 ---------------")
     model1 = logistic(X_train, X_test, y_train, y_test, 1, 'Model 1 - All Features with L1')
-    # pickle.dump(model1, open('model1r.sav', 'wb'))
+    model1 = xgboostmodel(X_train, X_test, y_train, y_test)
+
+    pickle.dump(model1, open('performance_evaluation_model25.sav', 'wb'))
     # Training on both - evaluation seperate:
     print("-----------model 1 maya---------------")
     model_evaluation(model1, X_test_maya, y_test_maya)
@@ -226,13 +237,40 @@ def plot_signals(result_df):
         fig.suptitle(f"{e}: FN")
 
 
+def add_labels():
+    file_name_with_label = 'allfeatures_scaled_label.csv'  # File containing all data
+    df_labels = pd.read_csv(f'CSV/features/{file_name_with_label}')
+    select_columns = ["Exercise", "Participant", "hand", "label"]
+    df_labels = df_labels[select_columns]
+
+    file_name = 'ODS_YDS_all_raw_datafeaturesbyhand.csv'
+    df_raw_data = pd.read_csv(f'CSV/features/{file_name}')
+
+    merged_df = pd.merge(df_raw_data, df_labels, on=["Exercise", "Participant", "hand"])
+    df = merged_df
+    plot_samples_by_category(df, "label", scores_pca_df, "Distribution Labels")
+
+    file_name = 'ODS_YDS_all_raw_data_scaledfeaturesbyhand.csv'
+    df_raw_data_feature = pd.read_csv(f'CSV/features/{file_name}')
+    merged_df = pd.merge(df_raw_data_feature, df_labels, on=["Exercise", "Participant", "hand"])
+    df = merged_df
+    plot_samples_by_category(df, "label", scores_pca_df, "Distribution Labels")
+
+
+    file_name = 'ODS_YDS_allfeatures_scaledbyODS.csv'
+    df_feature_scaled = pd.read_csv(f'CSV/features/{file_name}')
+    merged_df = pd.merge(df_feature_scaled, df_labels, on=["Exercise", "Participant", "hand"])
+    df = merged_df
+    plot_samples_by_category(df, "label", scores_pca_df, "Distribution Labels")
+
+
 if __name__ == '__main__':
     file_names = ['allfeatures_nonscaled_label.csv', 'allfeatures_scaled_label.csv','allfeatures_scaledbyval1_label.csv'
         ,'allfeatures_raw_scaled_label.csv']
     file_names = ['allfeatures_nonscaled_label.csv']
-    for f in file_names:
-        print(f"-------------{f}-----------")
-        models(f)
+    # for f in file_names:
+    #     print(f"-------------{f}-----------")
+    #     models(f)
 
     # pickle.dump(logit_model, open('model1.sav', 'wb'))
     #

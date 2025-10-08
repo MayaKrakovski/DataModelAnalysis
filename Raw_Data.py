@@ -24,12 +24,14 @@ def min_max_scale_signal(signal, exercise_range, desired_min=0, desired_max=1, b
 def scale_raw_data():
     exercises = {'raise_arms_horizontally': [30, 120], 'bend_elbows': [0, 180], 'raise_arms_bend_elbows': [0, 180]
                  ,'open_arms_and_forward': [90, 180]}
-    data_sources = ['maya', 'naama', 'naama_pilot', 'val1']
+    # data_sources = ['maya', 'naama', 'naama_pilot', 'val1']
+    data_sources = ['ODS', 'YDS']
 
     df = pd.DataFrame()
     for d in data_sources:
         for e in exercises:
-            temp = pd.read_csv('CSV/Raw Data/'+d+'_'+e+'.csv')
+            # temp = pd.read_csv('CSV/Raw Data/'+d+'_'+e+'.csv')
+            temp = pd.read_csv('CSV/Raw Data/'+d+e+'.csv')
             signalcols = temp.columns[temp.columns.str.startswith('Unnamed')]
             signal = temp[signalcols]
             scaled_signal = min_max_scale_signal(signal, exercises[e], 0, 1, True)
@@ -38,7 +40,8 @@ def scale_raw_data():
             temp.insert(1, "Source", [d]*len(temp.index), True)
             df = df.append(temp, ignore_index=True)
 
-    df.to_csv('CSV\\Raw Data\\all_raw_data_scaled_by_local_minmax.csv')
+    df.to_csv('CSV\\Raw Data\\ODS_YDS_raw_data_scaled_by_local_minmax.csv') # by dict = F
+    df.to_csv('CSV\\Raw Data\\ODS_YDS_raw_data_scaled.csv')  # by dict = T
 
     # plotting
     framepersec = 30  # frame per seconds of nuitrack
@@ -70,7 +73,8 @@ def scale_raw_data():
 
 
 def add_angle(path):
-    f = open('CSV/Raw Data/trynewnamma_'+'open_and_close_arms'+'.csv', 'w', newline='')
+    # f = open('CSV/Raw Data/trynewnamma_'+'open_and_close_arms'+'.csv', 'w', newline='')
+    f = open('CSV/Raw Data/ODS'+'open_and_close_arms'+'2.csv', 'w', newline='')
     writer = csv.writer(f)
     writer.writerow(['Participant','hand'])
 
@@ -208,9 +212,9 @@ def calc_angle(joint1_x, joint1_y, joint1_z, joint2_x, joint2_y, joint2_z, joint
         return None
 
 
-def arrange_data(path, ex_name, row1, row2):
+def arrange_data(path, ex_name, row1, row2, output_file_path):
     # Read all excel data and transform to one table in csv file, including only angles
-    f = open('CSV/Raw Data/val1'+ex_name+'.csv', 'w', newline='')
+    f = open(output_file_path+ex_name+'.csv', 'w', newline='')
     writer = csv.writer(f)
     writer.writerow(['Participant','hand'])
     workbook_name = os.listdir(path)
@@ -280,11 +284,11 @@ def scan_folder(p, data_source, ex_name, row1, row2):
 
 def maya_exp():
     # 26 participants, 2 sessions for each
-    path = u'C:\\Users\\mayak\\Documents\\לימודים\\תואר שני\\פרויקט גמר\\ניסויים COG\\דטה אקסל'
+    path = u'D:\\לימודים\\תואר שני\\פרויקט גמר\\ניסויים COG\\דטה אקסל'
     exercises = [['raise_arms_horizontally', 26, 27], ['bend_elbows', 26, 27],['raise_arms_bend_elbows', 32, 33],
                  ['open_arms_and_forward', 34, 35]]
     for ex in exercises:
-        arrange_data(path, ex[0], ex[1], ex[2])
+        arrange_data(path, ex[0], ex[1], ex[2], 'CSV/Raw Data/ODS') # 26 participants, 2 sessions for each
         # create_graphs(ex_name[0], True, False)
 
 
@@ -293,13 +297,13 @@ def validation_exp():
     exercises = [['raise_arms_horizontally', 50, 51], ['bend_elbows', 26, 27],['raise_arms_bend_elbows', 50, 51],
                  ['open_and_close_arms', 52, 53],['open_and_close_arms_90',52,53],['raise_arms_forward',50,51]]
     for ex in exercises:
-        arrange_data(p, ex[0], ex[1], ex[2])
+        arrange_data(p, ex[0], ex[1], ex[2], 'CSV/Raw Data/YDS')
 
     # OPEM_ARMS_AMD_CLOSE_90 contained in the file of OPEM_ARMS_AMD_CLOSE -
     # removing this so it will be sepreated
-    OPEM_ARMS_AMD_CLOSE = pd.read_csv(r'CSV\Raw Data\val1open_and_close_arms.csv')
+    OPEM_ARMS_AMD_CLOSE = pd.read_csv(r'CSV\Raw Data\YDSopen_and_close_arms.csv')
     df = OPEM_ARMS_AMD_CLOSE[~OPEM_ARMS_AMD_CLOSE['Participant'].str.endswith('2')]
-    df.to_csv(r'CSV\Raw Data\val1open_and_close_arms.csv')
+    df.to_csv(r'CSV\Raw Data\YDSopen_and_close_arms.csv')
 
 
 def naama_exp():
@@ -320,6 +324,19 @@ def naama_pilot():
     for ex in exercises:
         scan_folder(p, 'naama_pilot_' , ex[0], ex[1], ex[2])
 
+def combine():
+    ds = ['ODS', 'YDS']
+    exercises = ['raise_arms_horizontally', 'bend_elbows', 'raise_arms_bend_elbows', 'open_arms_and_forward']
+    data = pd.DataFrame()
+    for d in ds:
+        for e in exercises:
+            temp = pd.read_csv('CSV/Raw Data/'+d+e+".csv")
+            temp.insert(1, "Source", [d] * len(temp.index), True)
+            temp.insert(2, "Exercise", [e]*len(temp.index), True)
+            data = data.append(temp, ignore_index=True)
+
+    data.to_csv('CSV/Raw Data/ODS_YDS_all_raw_data.csv', index=False)
+
 
 def extract_raw_data():
     maya_exp()
@@ -333,6 +350,9 @@ if __name__ == '__main__':
     # maya_exp()
     # naama_exp()
     # naama_pilot()
+    validation_exp()
 
-    add_angle2(p)
+    p = u'D:\\לימודים\\תואר שני\\פרויקט גמר\\ניסויים COG\\דטה אקסל\\'
+    # add_angle(p)
+    # add_angle2(p)
 

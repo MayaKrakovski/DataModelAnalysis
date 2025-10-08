@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
+import seaborn as sns
+plt.style.use('ggplot')
 
 
 def start(df, exercise='all'):
@@ -130,62 +132,62 @@ if __name__ == "__main__":
 
 
 data = [
-    ["Trained on older adults 1", "Non Scaled", 0.87, 0.84],
-    ["Trained on older adults 1", "Feature Scaled", 0.89, 0.62],
-    ["Trained on older adults 1", "Raw Scaled", 0.84, 0.82],
-    ["Trained on Validation", "Non Scaled", 0.73, 0.96],
-    ["Trained on Validation", "Feature Scaled", 0.83, 0.98],
-    ["Trained on Validation", "Feature Scaled by Validation", 0.59, 0.94],
-    ["Trained on Validation", "Raw Scaled", 0.68, 0.96],
-    ["Train on Both:", "Non Scaled", 0.8, 0.97],
-    ["Train on Both:", "Feature Scaled", 0.96, 0.97],
-    ["Train on Both:", "Feature Scaled by Validation", 0.93, 0.95],
-    ["Train on Both:", "Raw Scaled", 0.82, 0.93]
+    ["Trained on ODS", "S1", 0.87, 0.84],
+    ["Trained on ODS", "S2 by ODS", 0.89, 0.62],
+    ["Trained on ODS", "S3", 0.84, 0.82],
+    ["Trained on YDS", "S1", 0.73, 0.96],
+    ["Trained on YDS", "S2 by ODS", 0.83, 0.98],
+    ["Trained on YDS", "S2 by YDS", 0.59, 0.94],
+    ["Trained on YDS", "S3", 0.68, 0.96],
+    ["Trained on Both", "S1", 0.8, 0.97],
+    ["Trained on Both", "S2 by ODS", 0.96, 0.97],
+    ["Trained on Both", "S2 by YDS", 0.93, 0.95],
+    ["Trained on Both", "S3", 0.82, 0.93]
 ]
 
-columns = ["Training Scenario", "Scaling Type", "Older Adults 1", "Validation"]
+columns = ["Training Scenario", "Scaling Condition", "Older Adults", "Young Adults"]
 df = pd.DataFrame(data, columns=columns)
 
 # Create a dictionary to map training scenarios to colors
-sns.set_palette("husl", 3)
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+sns.set_palette("husl", 4)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 4))
 
 # Plot for Older Adults 1
 handles = []
 labels = []
 for training_scenario, group in df.groupby("Training Scenario"):
     line = ax1.plot(
-        group["Scaling Type"],
-        group["Older Adults 1"],
+        group["Scaling Condition"],
+        group["Older Adults"],
         marker='o',
         linestyle='-',
         label=training_scenario
     )[0]
     handles.append(line)
     labels.append(training_scenario)
-ax1.set_xlabel("Scaling Type")
+ax1.set_xlabel("Scaling Condition")
 ax1.set_ylabel("Accuracy")
-ax1.set_title("Older Adults 1 vs Scaling Type")
-ax1.set_xticks(range(len(df["Scaling Type"].unique())))  # Set tick positions
-ax1.set_xticklabels(['Non Scaled', 'Feature Scaled by Older Adults 1',
-       'Feature Scaled by Validation', 'Raw Scaled'], rotation=45)  # Set tick labels
+ax1.set_title("ODS vs Scaling Condition")
+ax1.set_xticks(range(len(df["Scaling Condition"].unique())))  # Set tick positions
+ax1.set_xticklabels(['S1', 'S2 by ODS',
+       'S2 by YDS', 'S3'], rotation=45)  # Set tick labels
 ax1.set_ylim(0, 1)
 ax1.grid(True)
 
 # Plot for Validation
 for training_scenario, group in df.groupby("Training Scenario"):
     ax2.plot(
-        group["Scaling Type"],
-        group["Validation"],
+        group["Scaling Condition"],
+        group["Young Adults"],
         marker='o',
         linestyle='-'
     )
-ax2.set_xlabel("Scaling Type")
+ax2.set_xlabel("Scaling Condition")
 ax2.set_ylabel("Accuracy")
-ax2.set_title("Validation vs Scaling Type")
-ax2.set_xticks(range(len(df["Scaling Type"].unique())))  # Set tick positions
-ax2.set_xticklabels(['Non Scaled', 'Feature Scaled by Older Adults 1',
-       'Feature Scaled by Validation', 'Raw Scaled'], rotation=45)  # Set tick labels
+ax2.set_title("YDS vs Scaling Condition")
+ax2.set_xticks(range(len(df["Scaling Condition"].unique())))  # Set tick positions
+ax2.set_xticklabels(['S1', 'S2 by ODS',
+       'S2 by YDS', 'S3'], rotation=45)  # Set tick labels
 ax2.set_ylim(0, 1)
 ax2.grid(True)
 
