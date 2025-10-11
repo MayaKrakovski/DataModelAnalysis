@@ -6,7 +6,7 @@ from google.genai import types
 
 import matplotlib.pyplot as plt
 
-client = genai.Client(api_key="AIzaSyCTOx8Cb_hyi1LHYK5fEmDpB6RQzqhULI8")
+client = genai.Client(api_key=key)
 system_instruction = """You are a performance evaluation analyzer.
 You will receive: The name of a physical exercise, The name of the joint angle being monitored (e.g., shoulder, elbow),
 A list of joint angle values by frames recorded across 8 reptitions of the exercise of the robotic trainer. 
